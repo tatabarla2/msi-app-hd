@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>module\model\task\TaskModel.js - MSI App - Docs</title>
+    <link rel="stylesheet" href="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;3.7.0&#x2F;build&#x2F;cssgrids&#x2F;cssgrids-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="..&#x2F;assets/favicon.png">
+    <script src="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;combo?3.7.0&#x2F;build&#x2F;yui&#x2F;yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="&#x2F;msi-app&#x2F;img&#x2F;metricstream&#x2F;metricstream-logo-black.png" title="MSI App - Docs"></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 0.2.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="..&#x2F;classes/SettingModel.html">SettingModel</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: module\model\task\TaskModel.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+&#x2F;**
+ * TaskModel
+ * The TaskModel module.
+ *&#x2F;
+define([
+	&quot;lib.use!lib.debug&quot;,
+	&quot;util.Constants&quot;,
+	&quot;util.ErrorHandler&quot;,
+	&quot;lib.knockoutjs&quot;
+],
+function(
+	debug,
+	Constants,
+	ErrorHandler,
+	ko
+) {
+	&quot;use strict&quot;;
+
+	debug.log(&quot;model.task.TaskModel&quot;, &quot;Loading&quot;);
+	var Module = function() {
+		var self = this;
+
+		self.metaInformation = {
+			ddobjecttype      :	ko.observable(&quot;n&#x2F;a&quot;),
+			ddcurrentusername :	ko.observable(&quot;n&#x2F;a&quot;),
+			ddeventusername   :	ko.observable(&quot;n&#x2F;a&quot;),
+			ddenterpriseinfo  :	ko.observable(&quot;n&#x2F;a&quot;),
+			ddcurrentstage    :	ko.observable(&quot;n&#x2F;a&quot;),
+			ddprocesscode     :	ko.observable(&quot;n&#x2F;a&quot;)
+		};
+
+		self.taskInformation = {
+			taskname         :	ko.observable(&quot;n&#x2F;a&quot;),
+			checklistname    :	ko.observable(&quot;n&#x2F;a&quot;),
+			taskinstructions :	ko.observable(&quot;n&#x2F;a&quot;),
+			tasktimespent    :	ko.observable(&quot;n&#x2F;a&quot;),
+			taskstatus       :	ko.observable(&quot;n&#x2F;a&quot;),
+			taskowner        :	ko.observable(&quot;n&#x2F;a&quot;),
+			taskresult       :	ko.observable(&quot;n&#x2F;a&quot;),
+			taskworkdone     :	ko.observable(&quot;n&#x2F;a&quot;),
+			taskapprover     :	ko.observable(&quot;n&#x2F;a&quot;),
+			re1TASKNAME      :	ko.observable(&quot;n&#x2F;a&quot;),
+
+			&#x2F;&#x2F; An observable for keeping track of the Twitter Bootstrap label class to apply.
+			statusClass: ko.observable()
+		};
+
+		self.taskAuditInformation = {
+			audittitle             :	ko.observable(&quot;n&#x2F;a&quot;),
+			auditauditableentities :	ko.observable(&quot;n&#x2F;a&quot;),
+			auditpurpose           :	ko.observable(&quot;n&#x2F;a&quot;),
+			auditrelatedrisks      :	ko.observable(&quot;n&#x2F;a&quot;),
+			auditmanager           :	ko.observable(&quot;n&#x2F;a&quot;),
+			auditorganistions      :	ko.observable(&quot;n&#x2F;a&quot;),
+			auditconductedbyorg    :	ko.observable(&quot;n&#x2F;a&quot;),
+			auditactions           :	ko.observable(&quot;n&#x2F;a&quot;),
+			auditleadauditor       :	ko.observable(&quot;n&#x2F;a&quot;),
+			auditresults           :	ko.observable(&quot;n&#x2F;a&quot;)
+		};
+
+		self.applyMappings = function(value) {
+			debug.log(&quot;model.task.TaskModel&quot;, &quot;applyMappings&quot;, &quot;Applying mappings with&quot;, value);
+
+			if(typeof value !== &quot;undefined&quot;) {
+				self.metaInformation.ddobjecttype                (((typeof value.ddobjecttype           !== &quot;undefined&quot;) &amp;&amp; (value.ddobjecttype           !== &quot;&quot;)) ? value.ddobjecttype           : &quot;n&#x2F;a&quot;);
+				self.metaInformation.ddcurrentusername           (((typeof value.ddcurrentusername      !== &quot;undefined&quot;) &amp;&amp; (value.ddcurrentusername      !== &quot;&quot;)) ? value.ddcurrentusername      : &quot;n&#x2F;a&quot;);
+				self.metaInformation.ddeventusername             (((typeof value.ddeventusername        !== &quot;undefined&quot;) &amp;&amp; (value.ddeventusername        !== &quot;&quot;)) ? value.ddeventusername        : &quot;n&#x2F;a&quot;);
+				self.metaInformation.ddenterpriseinfo            (((typeof value.ddenterpriseinfo       !== &quot;undefined&quot;) &amp;&amp; (value.ddenterpriseinfo       !== &quot;&quot;)) ? value.ddenterpriseinfo       : &quot;n&#x2F;a&quot;);
+				self.metaInformation.ddcurrentstage              (((typeof value.ddcurrentstage         !== &quot;undefined&quot;) &amp;&amp; (value.ddcurrentstage         !== &quot;&quot;)) ? value.ddcurrentstage         : &quot;n&#x2F;a&quot;);
+				self.metaInformation.ddprocesscode               (((typeof value.ddprocesscode          !== &quot;undefined&quot;) &amp;&amp; (value.ddprocesscode          !== &quot;&quot;)) ? value.ddprocesscode          : &quot;n&#x2F;a&quot;);
+
+				self.taskInformation.taskname                    (((typeof value.taskname               !== &quot;undefined&quot;) &amp;&amp; (value.taskname               !== &quot;&quot;)) ? value.taskname               : &quot;n&#x2F;a&quot;);
+				self.taskInformation.checklistname               (((typeof value.checklistname          !== &quot;undefined&quot;) &amp;&amp; (value.checklistname          !== &quot;&quot;)) ? value.checklistname          : &quot;n&#x2F;a&quot;);
+				self.taskInformation.taskinstructions            (((typeof value.taskinstructns         !== &quot;undefined&quot;) &amp;&amp; (value.taskinstruions         !== &quot;&quot;)) ? value.taskinstctions         : &quot;n&#x2F;a&quot;);
+				self.taskInformation.tasktimespent               (((typeof value.tasktimespent          !== &quot;undefined&quot;) &amp;&amp; (value.tasktimespent          !== &quot;&quot;)) ? value.tasktimespent          : &quot;n&#x2F;a&quot;);
+				self.taskInformation.taskstatus                  (((typeof value.taskstatus             !== &quot;undefined&quot;) &amp;&amp; (value.taskstatus             !== &quot;&quot;)) ? value.taskstatus             : &quot;n&#x2F;a&quot;);
+				self.taskInformation.taskowner                   (((typeof value.taskowner              !== &quot;undefined&quot;) &amp;&amp; (value.taskowner              !== &quot;&quot;)) ? value.taskowner              : &quot;n&#x2F;a&quot;);
+				self.taskInformation.taskresult                  (((typeof value.taskresult             !== &quot;undefined&quot;) &amp;&amp; (value.taskresult             !== &quot;&quot;)) ? value.taskresult             : &quot;n&#x2F;a&quot;);
+				self.taskInformation.taskworkdone                (((typeof value.taskworkdone           !== &quot;undefined&quot;) &amp;&amp; (value.taskworkdone           !== &quot;&quot;)) ? value.taskworkdone           : &quot;n&#x2F;a&quot;);
+				self.taskInformation.taskapprover                (((typeof value.taskapprover           !== &quot;undefined&quot;) &amp;&amp; (value.taskapprover           !== &quot;&quot;)) ? value.taskapprover           : &quot;n&#x2F;a&quot;);
+				self.taskInformation.re1TASKNAME                 (((typeof value.re1TASKNAME            !== &quot;undefined&quot;) &amp;&amp; (value.re1TASKNAME          	!== &quot;&quot;)) ? value.re1TASKNAME           	: &quot;n&#x2F;a&quot;);
+
+				self.taskAuditInformation.audittitle             (((typeof value.audittitle             !== &quot;undefined&quot;) &amp;&amp; (value.audittitle             !== &quot;&quot;)) ? value.audittitle             : &quot;n&#x2F;a&quot;);
+				self.taskAuditInformation.auditauditableentities (((typeof value.auditauditableentities !== &quot;undefined&quot;) &amp;&amp; (value.auditauditableentities !== &quot;&quot;)) ? value.auditauditableentities : &quot;n&#x2F;a&quot;);
+				self.taskAuditInformation.auditpurpose           (((typeof value.auditpurpose           !== &quot;undefined&quot;) &amp;&amp; (value.auditpurpose           !== &quot;&quot;)) ? value.auditpurpose           : &quot;n&#x2F;a&quot;);
+				self.taskAuditInformation.auditrelatedrisks      (((typeof value.auditrelatedrisks      !== &quot;undefined&quot;) &amp;&amp; (value.auditrelatedrisks      !== &quot;&quot;)) ? value.auditrelatedrisks      : &quot;n&#x2F;a&quot;);
+				self.taskAuditInformation.auditmanager           (((typeof value.auditmanager           !== &quot;undefined&quot;) &amp;&amp; (value.auditmanager           !== &quot;&quot;)) ? value.auditmanager           : &quot;n&#x2F;a&quot;);
+				self.taskAuditInformation.auditorganistions      (((typeof value.auditorganistions      !== &quot;undefined&quot;) &amp;&amp; (value.auditorganistions      !== &quot;&quot;)) ? value.auditorganistions      : &quot;n&#x2F;a&quot;);
+				self.taskAuditInformation.auditconductedbyorg    (((typeof value.auditconductedbyorg    !== &quot;undefined&quot;) &amp;&amp; (value.auditconductedbyorg    !== &quot;&quot;)) ? value.auditconductedbyorg    : &quot;n&#x2F;a&quot;);
+				self.taskAuditInformation.auditactions           (((typeof value.auditactions           !== &quot;undefined&quot;) &amp;&amp; (value.auditactions           !== &quot;&quot;)) ? value.auditactions           : &quot;n&#x2F;a&quot;);
+				self.taskAuditInformation.auditleadauditor       (((typeof value.auditleadauditor       !== &quot;undefined&quot;) &amp;&amp; (value.auditleadauditor       !== &quot;&quot;)) ? value.auditleadauditor       : &quot;n&#x2F;a&quot;);
+				self.taskAuditInformation.auditresults           (((typeof value.auditresults           !== &quot;undefined&quot;) &amp;&amp; (value.auditresults           !== &quot;&quot;)) ? value.auditresults           : &quot;n&#x2F;a&quot;);
+			}
+
+			self.processStatusLabels();
+		};
+
+		self.stripMappings = function() {
+			var strippedData = {};
+
+			&#x2F;&#x2F; We need to remove the string, &quot;n&#x2F;a&quot;, while sending it back to our server, hence the code below.
+
+			strippedData.ddobjecttype     			= (&quot;n&#x2F;a&quot; !== self.metaInformation.ddobjecttype()      					? self.metaInformation.ddobjecttype()      						: &quot;&quot;);
+			strippedData.ddcurrentusername			= (&quot;n&#x2F;a&quot; !== self.metaInformation.ddcurrentusername() 					? self.metaInformation.ddcurrentusername() 						: &quot;&quot;);
+			strippedData.ddeventusername  			= (&quot;n&#x2F;a&quot; !== self.metaInformation.ddeventusername()   					? self.metaInformation.ddeventusername()   						: &quot;&quot;);
+			strippedData.ddenterpriseinfo 			= (&quot;n&#x2F;a&quot; !== self.metaInformation.ddenterpriseinfo()  					? self.metaInformation.ddenterpriseinfo()  						: &quot;&quot;);
+			strippedData.ddcurrentstage   			= (&quot;n&#x2F;a&quot; !== self.metaInformation.ddcurrentstage()    					? self.metaInformation.ddcurrentstage()    						: &quot;&quot;);
+			strippedData.ddprocesscode    			= (&quot;n&#x2F;a&quot; !== self.metaInformation.ddprocesscode()     					? self.metaInformation.ddprocesscode()     						: &quot;&quot;);
+
+			strippedData.taskname         			= (&quot;n&#x2F;a&quot; !== self.taskInformation.taskname()         						? self.taskInformation.taskname()         					 	: &quot;&quot;);
+			strippedData.checklistname    			= (&quot;n&#x2F;a&quot; !== self.taskInformation.checklistname()    						? self.taskInformation.checklistname()    					 	: &quot;&quot;);
+			strippedData.taskinstructions 			= (&quot;n&#x2F;a&quot; !== self.taskInformation.taskinstructions() 						? self.taskInformation.taskinstructions() 					 	: &quot;&quot;);
+			strippedData.tasktimespent    			= (&quot;n&#x2F;a&quot; !== self.taskInformation.tasktimespent()    						? self.taskInformation.tasktimespent()    					 	: &quot;&quot;);
+			strippedData.taskstatus       			= (&quot;n&#x2F;a&quot; !== self.taskInformation.taskstatus()       						? self.taskInformation.taskstatus()       					 	: &quot;&quot;);
+			strippedData.taskowner        			= (&quot;n&#x2F;a&quot; !== self.taskInformation.taskowner()        						? self.taskInformation.taskowner()        					 	: &quot;&quot;);
+			strippedData.taskresult       			= (&quot;n&#x2F;a&quot; !== self.taskInformation.taskresult()       						? self.taskInformation.taskresult()       					 	: &quot;&quot;);
+			strippedData.taskworkdone     			= (&quot;n&#x2F;a&quot; !== self.taskInformation.taskworkdone()     						? self.taskInformation.taskworkdone()     					 	: &quot;&quot;);
+			strippedData.taskapprover     			= (&quot;n&#x2F;a&quot; !== self.taskInformation.taskapprover()     						? self.taskInformation.taskapprover()     					 	: &quot;&quot;);
+			strippedData.re1TASKNAME      			= (&quot;n&#x2F;a&quot; !== self.taskInformation.re1TASKNAME()      						? self.taskInformation.re1TASKNAME()      					 	: &quot;&quot;);
+
+			strippedData.audittitle             = (&quot;n&#x2F;a&quot; !== self.taskAuditInformation.audittitle()             ? self.taskAuditInformation.audittitle()             	: &quot;&quot;);
+			strippedData.auditauditableentities = (&quot;n&#x2F;a&quot; !== self.taskAuditInformation.auditauditableentities() ? self.taskAuditInformation.auditauditableentities() 	: &quot;&quot;);
+			strippedData.auditpurpose           = (&quot;n&#x2F;a&quot; !== self.taskAuditInformation.auditpurpose()           ? self.taskAuditInformation.auditpurpose()           	: &quot;&quot;);
+			strippedData.auditrelatedrisks      = (&quot;n&#x2F;a&quot; !== self.taskAuditInformation.auditrelatedrisks()      ? self.taskAuditInformation.auditrelatedrisks()      	: &quot;&quot;);
+			strippedData.auditmanager           = (&quot;n&#x2F;a&quot; !== self.taskAuditInformation.auditmanager()           ? self.taskAuditInformation.auditmanager()           	: &quot;&quot;);
+			strippedData.auditorganistions      = (&quot;n&#x2F;a&quot; !== self.taskAuditInformation.auditorganistions()      ? self.taskAuditInformation.auditorganistions()      	: &quot;&quot;);
+			strippedData.auditconductedbyorg    = (&quot;n&#x2F;a&quot; !== self.taskAuditInformation.auditconductedbyorg()    ? self.taskAuditInformation.auditconductedbyorg()    	: &quot;&quot;);
+			strippedData.auditactions           = (&quot;n&#x2F;a&quot; !== self.taskAuditInformation.auditactions()           ? self.taskAuditInformation.auditactions()           	: &quot;&quot;);
+			strippedData.auditleadauditor       = (&quot;n&#x2F;a&quot; !== self.taskAuditInformation.auditleadauditor()       ? self.taskAuditInformation.auditleadauditor()       	: &quot;&quot;);
+			strippedData.auditresults           = (&quot;n&#x2F;a&quot; !== self.taskAuditInformation.auditresults()           ? self.taskAuditInformation.auditresults()           	: &quot;&quot;);
+
+			return strippedData;
+		};
+
+		self.processStatusLabels = function() {
+			debug.log(&quot;model.task.TaskModel&quot;, &quot;processStatusLabels&quot;, &quot;Processing status labels&quot;, self.taskInformation.taskstatus(), Constants.module.model.task.TaskModel.status);
+			switch(self.taskInformation.taskstatus()) {
+				case Constants.module.model.task.TaskModel.status[&quot;1&quot;].name:
+						self.taskInformation.statusClass(Constants.module.model.task.TaskModel.status[&quot;1&quot;].label);
+						self.taskInformation.taskstatus(Constants.module.model.task.TaskModel.status[&quot;1&quot;].humanName);
+					break;
+
+				case Constants.module.model.task.TaskModel.status[&quot;0&quot;].name:
+						self.taskInformation.statusClass(Constants.module.model.task.TaskModel.status[&quot;0&quot;].label);
+						self.taskInformation.taskstatus(Constants.module.model.task.TaskModel.status[&quot;0&quot;].humanName);
+					break;
+
+				default:
+						self.taskInformation.statusClass(Constants.module.model.task.TaskModel.status.DEFAULT.label);
+						self.taskInformation.taskstatus(Constants.module.model.task.TaskModel.status.DEFAULT.humanName);
+					break;
+			}
+		};
+
+		return self;
+	};
+
+	return {
+		createModule: function() {
+			return new Module();
+		}
+	};
+});
+
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="..&#x2F;assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="..&#x2F;assets/js/yui-prettify.js"></script>
+<script src="..&#x2F;assets/../api.js"></script>
+<script src="..&#x2F;assets/js/api-filter.js"></script>
+<script src="..&#x2F;assets/js/api-list.js"></script>
+<script src="..&#x2F;assets/js/api-search.js"></script>
+<script src="..&#x2F;assets/js/apidocs.js"></script>
+</body>
+</html>

@@ -1,0 +1,1553 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"selec",
+				"selectedTaskIndex"
+			],
+			[
+				"task",
+				"tasks"
+			],
+			[
+				"jQ",
+				"jqXHR"
+			],
+			[
+				"call",
+				"callback"
+			],
+			[
+				"on",
+				"iscroll_onpulldown"
+			],
+			[
+				"sett",
+				"settingsViewModel"
+			],
+			[
+				"data",
+				"data-role=  (attribute)"
+			],
+			[
+				"retr",
+				"retrieveSettings"
+			],
+			[
+				"met",
+				"metricstream"
+			],
+			[
+				"metricst",
+				"metricstream"
+			],
+			[
+				"tas",
+				"taskComms"
+			],
+			[
+				"com",
+				"complete"
+			],
+			[
+				"ref",
+				"refSettingModel"
+			],
+			[
+				"test",
+				"testSettingModel"
+			],
+			[
+				"settings",
+				"settingsManager"
+			],
+			[
+				"ret",
+				"retrieveTasks"
+			],
+			[
+				"Sett",
+				"SettingsManager"
+			],
+			[
+				"SEtt",
+				"SettingsManager"
+			],
+			[
+				"page",
+				"page-settings"
+			],
+			[
+				"for",
+				"forUsername"
+			],
+			[
+				"save",
+				"saveSettings"
+			],
+			[
+				"parse",
+				"parsedRawSettings"
+			],
+			[
+				"raw",
+				"rawSettings"
+			],
+			[
+				"Settings",
+				"SettingsViewModel"
+			],
+			[
+				"apply",
+				"applyBindings"
+			],
+			[
+				"Re",
+				"retrieveSettings"
+			],
+			[
+				"jquer",
+				"jQuery"
+			],
+			[
+				"jq",
+				"jqXHR"
+			],
+			[
+				"templ",
+				"templateManager"
+			],
+			[
+				"tag",
+				"tagId"
+			],
+			[
+				"temp",
+				"templateConfiguration"
+			],
+			[
+				"cont",
+				"control-label"
+			],
+			[
+				"sto",
+				"storage"
+			],
+			[
+				"valueMed",
+				"valueMediumHigh"
+			],
+			[
+				"theme",
+				"themeColorOneLight"
+			],
+			[
+				"back",
+				"background"
+			],
+			[
+				"Init",
+				"Initializing"
+			],
+			[
+				"isc",
+				"iscrollManager"
+			],
+			[
+				"iscroll",
+				"iscrollManager"
+			],
+			[
+				"str",
+				"stringifiedData"
+			],
+			[
+				"ta",
+				"taskName"
+			],
+			[
+				"stat",
+				"statusText"
+			],
+			[
+				"ini",
+				"initialize"
+			],
+			[
+				"creat",
+				"createModule"
+			],
+			[
+				"is",
+				"iScrollManager"
+			],
+			[
+				"iscr",
+				"iscroll"
+			],
+			[
+				"det",
+				"details"
+			],
+			[
+				"backg",
+				"background-color	zen:css_properties"
+			],
+			[
+				"inl",
+				"inline"
+			],
+			[
+				"valu",
+				"value06"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"Gray",
+				"GrayLight"
+			],
+			[
+				"valueU",
+				"valueUltraLow"
+			],
+			[
+				"val",
+				"valueLow"
+			],
+			[
+				"va",
+				"valueUltraLow"
+			],
+			[
+				"value",
+				"valueLow"
+			],
+			[
+				"er",
+				"errorBorder"
+			],
+			[
+				"err",
+				"errorText"
+			],
+			[
+				"appro",
+				"approverStates"
+			],
+			[
+				"h",
+				"handleAfterPageLoad"
+			],
+			[
+				"appr",
+				"approverManagement"
+			],
+			[
+				"hand",
+				"handleActionOnChange"
+			],
+			[
+				"app",
+				"approverManagement"
+			],
+			[
+				"COA",
+				"CO_APPROVER"
+			],
+			[
+				"c",
+				"currentTarget"
+			],
+			[
+				"even",
+				"event"
+			],
+			[
+				"arg",
+				"argTwo"
+			],
+			[
+				"ar",
+				"argOne"
+			],
+			[
+				"selected",
+				"selectedTask"
+			],
+			[
+				"new",
+				"newTask"
+			],
+			[
+				"Task",
+				"TaskModel"
+			],
+			[
+				"fet",
+				"fetchFromServer"
+			],
+			[
+				"aja",
+				"ajaxSetup  (function)"
+			],
+			[
+				"re",
+				"refTasks"
+			],
+			[
+				"Core",
+				"CoreTest"
+			],
+			[
+				"the",
+				"themeColorOneDarker"
+			],
+			[
+				"Ini",
+				"Initializing"
+			],
+			[
+				"bac",
+				"background-color"
+			],
+			[
+				"GrayLig",
+				"GrayLightest"
+			],
+			[
+				"font",
+				"fontSmall"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"ob",
+				"observable"
+			],
+			[
+				"comm",
+				"common"
+			],
+			[
+				"avai",
+				"availableSorts"
+			],
+			[
+				"jquery",
+				"jquery-mobile"
+			],
+			[
+				"obs",
+				"observable"
+			],
+			[
+				"sky",
+				"skyscraper"
+			],
+			[
+				"sk",
+				"skyscraper"
+			],
+			[
+				"get",
+				"getSkyscrapers"
+			],
+			[
+				"Skys",
+				"SkyscraperViewmodel"
+			],
+			[
+				"inde",
+				"indexToRefresh"
+			],
+			[
+				"ind",
+				"indexToRefresh"
+			],
+			[
+				"ti",
+				"title"
+			],
+			[
+				"Sky",
+				"SkyscraperViewmodel"
+			],
+			[
+				"que",
+				"QuestionTest"
+			],
+			[
+				"me",
+				"members"
+			],
+			[
+				"q",
+				"questionCollection"
+			],
+			[
+				"Questio",
+				"QuestionViewmodel"
+			],
+			[
+				"Que",
+				"QuestionCollection"
+			],
+			[
+				"inp",
+				"inputBackgroundColor"
+			],
+			[
+				"j",
+				"jQuery"
+			],
+			[
+				"class",
+				"classname"
+			],
+			[
+				"msai_mul",
+				"msai_multirow_name"
+			],
+			[
+				"Gr",
+				"GrayDarkest"
+			],
+			[
+				"in",
+				"include"
+			],
+			[
+				"color",
+				"colorStopTwo"
+			],
+			[
+				"colo",
+				"colorStopTwo"
+			],
+			[
+				"tab",
+				"tabBottomBorder"
+			],
+			[
+				"marg",
+				"margin-top"
+			],
+			[
+				"se",
+				"self"
+			],
+			[
+				"pad",
+				"padding-bottom"
+			],
+			[
+				"mus",
+				"musicEntity"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"rgb",
+				"rgba()"
+			],
+			[
+				"sas",
+				"Arial, Helvetica, sans-serif"
+			],
+			[
+				"background",
+				"background-position"
+			],
+			[
+				"backgrou",
+				"background-repeat"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 4002,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "Packages/SASS/SASS (Windows).sublime-build",
+	"command_palette":
+	{
+		"height": 86.0,
+		"selected_items":
+		[
+			[
+				"lower",
+				"Convert Case: Lower Case"
+			],
+			[
+				"java",
+				"Set Syntax: Java"
+			],
+			[
+				"list pak",
+				"Package Control: List Packages"
+			],
+			[
+				"html",
+				"Set Syntax: HTML"
+			],
+			[
+				"low",
+				"Convert Case: Lower Case"
+			],
+			[
+				"todo",
+				"Show TODOs: Open files only"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"instal",
+				"Package Control: Install Package"
+			],
+			[
+				"close",
+				"File: Close All"
+			],
+			[
+				"disable",
+				"Package Control: Disable Package"
+			],
+			[
+				"save all",
+				"File: Save All"
+			],
+			[
+				"rev",
+				"File: Reveal"
+			],
+			[
+				"indent",
+				"Indentation: Reindent Lines"
+			],
+			[
+				"json",
+				"Set Syntax: JSON"
+			],
+			[
+				"s ja pr",
+				"Set Syntax: Java Properties"
+			],
+			[
+				"synta java pr",
+				"Set Syntax: Java Properties"
+			],
+			[
+				"syn java pr",
+				"Set Syntax: Java Properties"
+			],
+			[
+				"syn java pro",
+				"Set Syntax: Java Properties"
+			],
+			[
+				"syntax pro",
+				"Set Syntax: Java Properties"
+			],
+			[
+				"ret",
+				"Pretty JSON: Reformat (Pretty Print) JSON"
+			],
+			[
+				"retty",
+				"Pretty JSON: Reformat (Pretty Print) JSON"
+			],
+			[
+				"pretty",
+				"Pretty JSON: Reformat (Pretty Print) JSON"
+			],
+			[
+				"close all",
+				"File: Close All"
+			],
+			[
+				"preferes",
+				"Preferences: Settings - User"
+			],
+			[
+				"javas",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"case",
+				"Convert Case: Upper Case"
+			],
+			[
+				"javascr",
+				"Set Syntax: JavaScript"
+			],
+			[
+				"js",
+				"JSLint: Show JSLint Result"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"add",
+				"Project: Add Folder"
+			],
+			[
+				"move",
+				"File: Move"
+			],
+			[
+				"all",
+				"File: Close All"
+			],
+			[
+				"css",
+				"Set Syntax: CSS"
+			],
+			[
+				"delete",
+				"File: Delete"
+			],
+			[
+				"tag",
+				"Tag: Auto-Format Tags on Selection"
+			],
+			[
+				"dele",
+				"File: Delete"
+			],
+			[
+				"CASE",
+				"Convert Case: Lower Case"
+			],
+			[
+				"proje",
+				"Project: Add Folder"
+			],
+			[
+				"del",
+				"File: Delete"
+			],
+			[
+				"d",
+				"File: Delete"
+			],
+			[
+				"new",
+				"File: New File Relative to Current View"
+			],
+			[
+				"pack ins",
+				"Package Control: Install Package"
+			],
+			[
+				"remove",
+				"Package Control: Remove Package"
+			],
+			[
+				"search",
+				"File: Search Files"
+			],
+			[
+				"conver",
+				"Convert Case: Upper Case"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"rem",
+				"Package Control: Remove Package"
+			]
+		],
+		"width": 514.0
+	},
+	"console":
+	{
+		"height": 125.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": false,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": true,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/E/Installed/Tomcat/webapps/msi-app/js/module/model/task/TaskModel.js",
+		"/E/Installed/Tomcat/webapps/msi-app/js/script.js",
+		"/E/Installed/Tomcat/webapps/msi-app/js/module/util/Storage.js",
+		"/E/Installed/Tomcat/webapps/msi-app/js/module/util/Constants.js",
+		"/E/Installed/Tomcat/webapps/msi-app/data/refimpldata3.json",
+		"/E/Installed/Tomcat/webapps/msi-app/font/fontawesome-webfont.ttf",
+		"/E/Installed/Tomcat/webapps/msi-app/css/scss/component/_overrides.scss",
+		"/E/Installed/Tomcat/webapps/msi-app/css/style.scss",
+		"/E/Installed/Tomcat/webapps/msi-app/js/module/yuidoc.json",
+		"/E/Installed/Tomcat/webapps/msi-app/js/module/util/communication/TaskComms.js",
+		"/E/Installed/Tomcat/webapps/msi-app/js/module/util/communication/Communication.js",
+		"/E/Installed/Tomcat/webapps/msi-app/js/module/util/communication/TmplComms.js",
+		"/E/Installed/Tomcat/webapps/msi-app/js/module/viewmodel/setting/SettingsViewModel.js",
+		"/E/Installed/Tomcat/webapps/msi-app/js/module/util/Settings.js",
+		"/E/Installed/Tomcat/webapps/msi-app/js/module/model/setting/SettingModel.js",
+		"/E/Installed/Tomcat/webapps/msi-app/js/module/Core.js",
+		"/E/Installed/Tomcat/webapps/msi-app/tmpl/pages/page-settings.html",
+		"/E/Installed/Tomcat/webapps/msi-app/js/module/util/tmpl/TemplateManager.js",
+		"/E/Installed/Tomcat/webapps/msi-app/js/module/util/lib/iscroll/Manager.js",
+		"/E/Installed/Tomcat/webapps/msi-app/js/module/viewmodel/task/TaskViewModel.js",
+		"/E/Installed/Tomcat/webapps/msi-app/index.html",
+		"/E/Installed/Tomcat/webapps/msi-app/index-mobile.html",
+		"/E/Installed/Tomcat/webapps/msi-app/tmpl/task-detail.html",
+		"/E/Installed/Tomcat/webapps/msi-app/tmpl/tasks-list.html",
+		"/E/Installed/Tomcat/webapps/msi-app/css/scss/variable/_variable.scss",
+		"/E/Installed/Tomcat/webapps/msi-app/js/test/model/task/TaskModelTest.js",
+		"/E/Installed/Tomcat/webapps/msi-app/css/scss/lib/util/_helper.scss",
+		"/E/Installed/Tomcat/webapps/msi-app/css/scss/lib/util/_reset.scss",
+		"/E/Installed/Tomcat/webapps/msi-app/css/scss/lib/util/_util.scss",
+		"/E/Installed/Tomcat/webapps/msi-app/css/scss/lib/_lib.scss",
+		"/E/Installed/Tomcat/webapps/msi-app/css/scss/_scss.scss",
+		"/E/Installed/Tomcat/webapps/msi-app/css/scss/lib/jquery-mobile/_jquery.mobile.structure-1.2.0-rc.2.scss",
+		"/E/Installed/Tomcat/webapps/msi-app/css/style.css",
+		"/E/Installed/Tomcat/webapps/msi-app/css/scss/lib/jquery-mobile/jquery.mobile-1.1.1.css",
+		"/E/Installed/Tomcat/webapps/msi-app/css/scss/lib/jquery-mobile/_jquery.mobile.theme-1.2.0-rc.2.scss",
+		"/E/Installed/Tomcat/webapps/msi-app/css/scss/lib/bootstrap/_bootstrap.scss",
+		"/F/Documents/MetricStream/MSI-APP/MS_AUD_AUDIT_TASK - web service/WSDL.xml",
+		"/F/Documents/MetricStream/MSI-APP/Wsdlgen.xml",
+		"/E/Installed/Tomcat/webapps/msi-app/css/scss/lib/jquery-mobile/_jquery.mobile-1.2.0-rc.2.scss",
+		"/E/Installed/Sublime Text 2.0.1/Data/Packages/User/Preferences.sublime-settings",
+		"/F/temp/src/src/com/metricstream/android/LoginActivity.java",
+		"/F/temp/src/src/com/metricstream/android/ecp/ConnectEcp.java",
+		"/E/Installed/Tomcat/webapps/msi-app/js/test/model/setting/SettingModelTest.js",
+		"/C/Documents and Settings/rishabhr/Desktop/temp",
+		"/E/Installed/MSIEGRCP60SP4/SYSTEMi/custom_templates/fastform/MS_GRC/MS_GRC_AREA_OF_COMPLIANCE.vm",
+		"/E/Installed/Tomcat/webapps/msi-app/js/test/viewmodel/task/TaskViewModelTest.js",
+		"/E/Installed/Tomcat/webapps/msi-app/xcopyexclude.txt",
+		"/E/Installed/Tomcat/webapps/msi-app/tmpl/pages/page-tasks-content.html",
+		"/E/Installed/Tomcat/webapps/msi-app/tmpl/pages/page-tasks-contents.html",
+		"/E/Installed/Tomcat/webapps/msi-app/tmpl/pages/page-tasks.html",
+		"/E/Installed/Tomcat/webapps/msi-app/tmpl/page-tasks.html",
+		"/E/Installed/Tomcat/webapps/msi-app/tmpl/page-settings.html",
+		"/E/Installed/Tomcat/webapps/msi-app/tmpl/settings.html",
+		"/E/Installed/Tomcat/webapps/msi-app/js/lib/qunit/qunit.js",
+		"/E/Installed/Tomcat/webapps/msi-app/js/module/viewmodel/settings/SettingsViewModel.js",
+		"/E/Installed/Tomcat/webapps/msi-app/js/module/model/settings/SettingModel.js",
+		"/E/Installed/Tomcat/webapps/msi-app/js/module/util/ErrorHandler.js",
+		"/E/Installed/Tomcat/webapps/msi-app/css/scss/component/_task-list.scss",
+		"/E/Installed/Tomcat/webapps/msi-app/css/scss/lib/util/_mixin.scss",
+		"/E/Installed/Tomcat/webapps/msi-app/css/scss/lib/iscroll/_jquery.mobile.iscrollview-pull.scss",
+		"/E/Installed/Tomcat/webapps/msi-app/css/scss/component/_body.scss",
+		"/E/Installed/Tomcat/webapps/msi-app/css/scss/component/_component.scss",
+		"/E/Installed/Sublime Text 2.0.1/Data/Packages/Default/Preferences.sublime-settings",
+		"/E/Installed/BatchFiles/deploy-to-phonegap.bat",
+		"/E/Installed/Tomcat/webapps/msi-app/js/lib/knockoutjs/knockout-2.1.0.debug.js",
+		"/E/Installed/BatchFiles/as.bat",
+		"/E/Installed/Tomcat/webapps/msi-app/css/scss/lib/source-sans/_source-sans.scss",
+		"/E/Installed/Tomcat/webapps/msi-app/tmpl/task-list.html",
+		"/E/Installed/Tomcat/webapps/msi-app/img/lib/jquery-mobile/ajax-loader.gif",
+		"/E/Installed/Sublime Text 2.0.1/Data/Packages/SideBarGit/SideBarGit.sublime-settings",
+		"/E/Installed/MSIEGRCP60SP4/SYSTEMi/Systemi/Resource/Html/appssdk/gecko/dlo/scss/variable/_variables.scss",
+		"/E/Installed/MSIEGRCP60SP4/SYSTEMi/Systemi/Resource/Html/appssdk/gecko/dlo/aside.scss",
+		"/E/Installed/MSIEGRCP60SP4/SYSTEMi/Systemi/Resource/Html/appssdk/gecko/dlo/scss/component/_tab.scss",
+		"/E/Installed/MSIEGRCP60SP4/SYSTEMi/Systemi/Resource/Html/appssdk/gecko/dlo/scss/component/_tree.scss",
+		"/E/Installed/MSIEGRCP60SP4/SYSTEMi/Systemi/Resource/Html/appssdk/gecko/dlo/scss/component/_multirow.scss",
+		"/E/Installed/MSIEGRCP60SP4/SYSTEMi/Systemi/Resource/Html/appssdk/gecko/dlo/scss/component/_button.scss",
+		"/E/Installed/MSIEGRCP60SP4/SYSTEMi/Systemi/Resource/Html/appssdk/gecko/dlo/scss/component/_grid.scss",
+		"/E/Installed/MSIEGRCP60SP4/SYSTEMi/Systemi/Resource/Html/appssdk/gecko/dlo/aside.css",
+		"/E/Installed/Tomcat/webapps/msi-app/css/less/lib/bootstrap/accordion.less",
+		"/E/Installed/Tomcat/webapps/msi-app/css/less/lib/bootstrap/variables.less",
+		"/E/Installed/Tomcat/webapps/msi-app/css/scss/lib/fontawesome/_font-awesome.scss",
+		"/E/Installed/Tomcat/webapps/msi-app/tasks.html",
+		"/E/Library/watusi-jquery-mobile-iscrollview-1.2.4-0-gf2592b6/watusi-jquery-mobile-iscrollview-f2592b6/demo/source/javascripts/iscroll.js",
+		"/E/Installed/Tomcat/webapps/msi-app-dev/css/scss/component/_task-list.scss",
+		"/E/Installed/Tomcat/webapps/msi-app/humans.txt",
+		"/E/Library/watusi-jquery-mobile-iscrollview-1.2.4-0-gf2592b6/watusi-jquery-mobile-iscrollview-f2592b6/demo/build/pull_11.html",
+		"/C/Documents and Settings/rishabhr/My Documents/Downloads/FortAwesome-Font-Awesome-ee55c85/css/font-awesome.css",
+		"/C/Documents and Settings/rishabhr/Desktop/bootstrap/css/bootstrap.css",
+		"/E/Installed/Tomcat/webapps/msi-app/apple-touch-icon-precomposed.png",
+		"/E/Installed/Tomcat/webapps/msi-app-dev/index.html",
+		"/E/Installed/Tomcat/webapps/msi-app/data/refimpldata.json",
+		"/E/Installed/Tomcat/webapps/msi-app/data/sampledata.json",
+		"/E/Installed/Tomcat/webapps/msi-app/data/research.txt",
+		"/E/Installed/Tomcat/webapps/msi-app/js/lib/jquery-mobile/jquery.mobile-1.1.1.js",
+		"/E/Installed/Tomcat/webapps/msi-app/data/refimpldata2.json",
+		"/E/Installed/Tomcat/webapps/msi-app/css/less/component/overrides.less",
+		"/E/Installed/Tomcat/webapps/msi-app/js/lib/bootstrap/bootstrap.js",
+		"/F/Development/Workspaces/NetBeansWS/mom/src/main/webapp/resources/less/ui/override/overrides.less",
+		"/E/Library/cubiq-iscroll-10f9662/examples/simple/index.html",
+		"/E/Installed/Tomcat/webapps/msi-app/data/tasks.json",
+		"/E/Installed/Tomcat/webapps/msi-app/js/lib/iscroll/iscroll.js",
+		"/E/Installed/Tomcat/webapps/msi-app/js/module/util/lib/iscroll/CustomBindings.js",
+		"/E/Installed/Sublime Text 2.0.1/Data/Packages/User/NewRequireJSModule.sublime-snippet",
+		"/E/Installed/Sublime Text 2.0.1/Data/Packages/Alignment/Base File.sublime-settings",
+		"/E/Installed/Sublime Text 2.0.1/Data/Packages/User/Base File.sublime-settings",
+		"/F/Development/Staging/AppStudio_User_Repo/rishabhr/projects/AppleTheme/Apple/msi-app-audits.ep",
+		"/E/Installed/MSIEGRCP60SP4/SYSTEMi/Systemi/Resource/Html/css/default.css",
+		"/E/Installed/MSIEGRCP60SP4/SYSTEMi/Systemi/Resource/Html/login_page.vm",
+		"/C/Documents and Settings/rishabhr/Desktop/retomcat.bat",
+		"/E/Installed/MSIEGRCP60SP4/SYSTEMi/Systemi/Config/config.client.xml",
+		"/F/Documents/Client project/Apple/apple_login/apple_login/css/default.css",
+		"/F/Documents/Client project/Apple/apple_login/apple_login/login_page.vm",
+		"/F/Documents/Client project/Apple/login_page.vm",
+		"/E/Installed/MSIEGRCP60SP4/SYSTEMi/Systemi/Resource/Html/appssdk/gecko/dlo/scss/lib/_util.scss",
+		"/E/Installed/MSIEGRCP60SP4/SYSTEMi/Systemi/Resource/Html/appssdk/gecko/dlo/scss/_scss.scss",
+		"/E/Installed/MSIEGRCP60SP4/SYSTEMi/Systemi/Resource/Html/appssdk/gecko/dlo/scss/component/_components.scss",
+		"/E/Installed/MSIEGRCP60SP4/SYSTEMi/Systemi/Resource/Html/appssdk/gecko/dlo/scss/component/_accordion.scss",
+		"/E/Installed/MSIEGRCP60SP4/SYSTEMi/Systemi/Resource/Html/appssdk/gecko/dlo/scss/component/_layout.scss",
+		"/E/Installed/MSIEGRCP60SP4/SYSTEMi/Systemi/Resource/Html/appssdk/gecko/dlo/scss/component/_form.scss",
+		"/E/Installed/MSIEGRCP60SP4/SYSTEMi/Systemi/Resource/Html/appssdk/gecko/dlo/apple-diff.txt",
+		"/E/Installed/MSIEGRCP60SP4/SYSTEMi/Systemi/Resource/Html/appssdk/gecko/dlo/scss/component/_overrides.scss",
+		"/E/Installed/MSIEGRCP60SP4/SYSTEMi/Systemi/Resource/Html/appssdk/gecko/co/aside.css",
+		"/E/Installed/MSIEGRCP60SP4/SYSTEMi/Systemi/Resource/Html/appssdk/gecko/biyo/aside.css",
+		"/E/Installed/MSIEGRCP60SP4/SYSTEMi/Systemi/Resource/Html/appssdk/gecko/aqua/aside.css",
+		"/E/Installed/MSIEGRCP60SP4/SYSTEMi/Systemi/Resource/Html/appssdk/gecko/dlo/scss/component/_misc.scss",
+		"/E/Installed/MSIEGRCP60SP4/SYSTEMi/custom_templates/Resource/MS_CNT_PERSONFORM.properties",
+		"/E/Installed/MSIEGRCP60SP4/SYSTEMi/custom_templates/Resource/MS_CNT_PERSON.properties",
+		"/E/Installed/MSIEGRCP60SP4/SYSTEMi/custom_templates/fastform/nonminified/ms_appstudio_mpower_def.vm"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"<open folders>",
+			"E:\\Installed\\Tomcat\\webapps\\msi-app,-E:\\Installed\\Tomcat\\webapps\\msi-app\\js\\lib,*.js,-E:\\Installed\\Tomcat\\webapps\\msi-app\\build",
+			"E:\\Installed\\Tomcat\\webapps\\msi-app,-E:\\Installed\\Tomcat\\webapps\\msi-app\\js\\lib,*.js",
+			"E:\\Installed\\Tomcat\\webapps\\msi-app,-E:\\Installed\\Tomcat\\webapps\\msi-app\\js\\lib",
+			"E:\\Installed\\Tomcat\\webapps\\msi-app",
+			"<open folders>",
+			"<project>",
+			"*.js",
+			"<project>",
+			"",
+			"<open folders>",
+			"E:\\Installed\\MSIEGRCP60SP4\\SYSTEMi\\Systemi\\Resource\\Html\\appssdk\\gecko\\dlo\\scss",
+			"E:\\Installed\\MSIEGRCP60SP4\\SYSTEMi\\Systemi\\Resource\\Html\\appssdk\\gecko\\dlo",
+			"<project>",
+			"E:\\Installed\\MSIEGRCP60SP4\\SYSTEMi\\Systemi\\Resource\\Html\\appssdk\\gecko\\dlo\\scss",
+			"E:\\Installed\\Tomcat\\webapps\\listen-too",
+			"E:\\Installed\\Tomcat\\webapps",
+			"E:\\Installed\\MSIEGRCP60SP4\\SYSTEMi\\Systemi\\Resource\\Html\\appssdk\\gecko\\dlo\\scss"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"One",
+			": ",
+			"input",
+			"inherit",
+			"button",
+			"img/lib/jquery-mobile",
+			"url(",
+			"url",
+			" ",
+			"textStatus",
+			"settings",
+			"taskExecution.results",
+			"result",
+			"workDone",
+			"data-theme",
+			"taskname",
+			"taskapprover",
+			"taskname",
+			"data",
+			"data-theme=\"b\" ",
+			"collapsible",
+			"data",
+			"collapsible",
+			"data-content-theme=\"c\" ",
+			"ata-role=\"page\"",
+			"data-theme",
+			"convertXMLGregoCal(new Date()));",
+			"?",
+			"taskStatus",
+			"taskName",
+			"taskStatus",
+			"auditStatDate",
+			"auditLeadAuditor",
+			"auditConductedByOrg",
+			"auditOrganistions",
+			"auditAuditManager",
+			"auditRelatedRisks",
+			"auditPurpose",
+			"auditAuditableEntities",
+			"auditTitle",
+			"taskresult",
+			"taskCompletionDate",
+			"taskStartDate",
+			"checkListName",
+			"taskTimeSpent",
+			"taskStatus",
+			"taskOwner",
+			"taskApprover",
+			"taskName",
+			"auditTitle",
+			"taskworkdone",
+			"checkListName",
+			"taskTimeSpent",
+			"taskCompletionDate",
+			"taskStatus",
+			"taskOwner",
+			"taskApprover",
+			"taskStartDate",
+			"taskName",
+			"taskInformation",
+			"ddenterpriseinfo",
+			"taskname",
+			"taskAuditInformation",
+			"auditleadauditor",
+			"auditConductedByOrg",
+			"auditOrganistions",
+			"auditAuditManager",
+			"auditLeadAuditor",
+			"auditRelatedRisks",
+			"auditAuditableEntities",
+			"auditPurpose",
+			"auditStatDate",
+			"auditTitle",
+			"taskTimeSpent",
+			"taskInstructions",
+			"taskCompletionDate",
+			"checkListName",
+			"taskStatus",
+			"taskOwner",
+			"taskApprover",
+			"taskStartDate",
+			"taskName",
+			"taskTimeSpent",
+			": ",
+			":",
+			": ",
+			": 	",
+			" ",
+			"audit",
+			"udi",
+			"audit",
+			"Ext",
+			"ORB",
+			"header",
+			"refreshTasks",
+			"refreshListItemsUI",
+			"page-audits-tasks-list",
+			"listview",
+			"refreshCollapsibleBlocks",
+			"page-tasks",
+			"page-audits-content",
+			"page-tasks",
+			"/",
+			"trigger",
+			"modelData",
+			".modelData",
+			"data-mini=\"true\" ",
+			" control-jqm",
+			"general",
+			"receive",
+			"testSettingModel",
+			"strictEqual",
+			"amd",
+			"define(",
+			"define",
+			"title",
+			"testTask",
+			"Task",
+			"model.task",
+			"TaskModelTest",
+			"saveSettings",
+			"retrieveSettings",
+			"settingModel",
+			"self.settings",
+			"return",
+			"SettingsViewModel",
+			"Storage",
+			"settings: self.settings"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"MS_CHK_CHECKLIST_MASTER1",
+			"com",
+			""
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"settings":
+					{
+						"buffer_size": 4002,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"annotations":
+							[
+								"TODO",
+								"README",
+								"FIXME"
+							],
+							"csslint_options":
+							{
+								"adjoining-classes": "warning",
+								"box-model": true,
+								"box-sizing": "warning",
+								"compatible-vendor-prefixes": "warning",
+								"display-property-grouping": true,
+								"duplicate-background-images": "warning",
+								"duplicate-properties": true,
+								"empty-rules": true,
+								"errors": true,
+								"fallback-colors": "warning",
+								"floats": "warning",
+								"font-faces": "warning",
+								"font-sizes": "warning",
+								"gradients": "warning",
+								"ids": "warning",
+								"import": "warning",
+								"important": "warning",
+								"known-properties": true,
+								"outline-none": "warning",
+								"overqualified-elements": "warning",
+								"qualified-headings": "warning",
+								"regex-selectors": "warning",
+								"rules-count": "warning",
+								"shorthand": "warning",
+								"star-property-hack": "warning",
+								"text-indent": "warning",
+								"underscore-property-hack": "warning",
+								"unique-headings": "warning",
+								"universal-selector": "warning",
+								"vendor-prefix": true,
+								"zero-units": "warning"
+							},
+							"gjslint_ignore":
+							[
+								110.0
+							],
+							"gjslint_options":
+							[
+							],
+							"is_xml": false,
+							"javascript_linter": "jshint",
+							"jshint_options":
+							{
+								"browser": true,
+								"evil": true,
+								"regexdash": true,
+								"sub": true,
+								"trailing": true,
+								"wsh": true
+							},
+							"pep8": true,
+							"pep8_ignore":
+							[
+								"E501"
+							],
+							"perl_linter": "perlcritic",
+							"pyflakes_ignore":
+							[
+							],
+							"pyflakes_ignore_import_*": true,
+							"sublimelinter": true,
+							"sublimelinter_delay": 2.0,
+							"sublimelinter_disable":
+							[
+							],
+							"sublimelinter_executable_map":
+							{
+							},
+							"sublimelinter_fill_outlines": false,
+							"sublimelinter_gutter_marks": false,
+							"sublimelinter_mark_style": "outline",
+							"sublimelinter_notes": false,
+							"sublimelinter_objj_check_ascii": false,
+							"sublimelinter_popup_errors_on_save": false,
+							"sublimelinter_syntax_map":
+							{
+								"Python Django": "python",
+								"Ruby on Rails": "ruby"
+							},
+							"sublimelinter_wrap_find": true,
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 216.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		},
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 32.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			],
+			[
+				1,
+				0,
+				2,
+				1
+			],
+			[
+				0,
+				1,
+				1,
+				2
+			],
+			[
+				1,
+				1,
+				2,
+				2
+			]
+		],
+		"cols":
+		[
+			0.0,
+			0.5,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			0.5,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 26.0
+	},
+	"output.find_results":
+	{
+		"height": 215.0
+	},
+	"replace":
+	{
+		"height": 60.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"yui",
+				"js/module/yuidoc.json"
+			],
+			[
+				"style",
+				"css/style.scss"
+			],
+			[
+				"bootstra",
+				"css/scss/lib/bootstrap/_bootstrap.scss"
+			],
+			[
+				"over",
+				"css/scss/component/_overrides.scss"
+			],
+			[
+				"lib",
+				"css/scss/lib/_lib.scss"
+			],
+			[
+				"iscmana",
+				"js/module/util/lib/iscroll/Manager.js"
+			],
+			[
+				"struct",
+				"css/scss/lib/jquery-mobile/_jquery.mobile.structure-1.2.0-rc.2.scss"
+			],
+			[
+				"scr",
+				"js/script.js"
+			],
+			[
+				"taskmodel",
+				"js/module/model/task/TaskModel.js"
+			],
+			[
+				"taskcomm",
+				"js/module/util/communication/TaskComms.js"
+			],
+			[
+				"tasview",
+				"js/module/viewmodel/task/TaskViewModel.js"
+			],
+			[
+				"sett",
+				"tmpl/pages/page-settings.html"
+			],
+			[
+				"storage",
+				"js/module/util/Storage.js"
+			],
+			[
+				"templ",
+				"js/module/util/tmpl/TemplateManager.js"
+			],
+			[
+				"ref",
+				"data/refimpldata3.json"
+			],
+			[
+				"qui",
+				"js/lib/qunit/qunit.js"
+			],
+			[
+				"tmpl/",
+				"tmpl/task-detail.html"
+			],
+			[
+				"core",
+				"js/module/Core.js"
+			],
+			[
+				"const",
+				"js/module/util/Constants.js"
+			],
+			[
+				"taskv",
+				"js/module/viewmodel/task/TaskViewModel.js"
+			],
+			[
+				"setti",
+				"js/module/viewmodel/settings/SettingsViewModel.js"
+			],
+			[
+				"knockou",
+				"js/lib/knockoutjs/knockout-2.1.0.debug.js"
+			],
+			[
+				"tasco",
+				"js/module/util/communication/TaskComms.js"
+			],
+			[
+				"pull",
+				"css/scss/lib/iscroll/_jquery.mobile.iscrollview-pull.scss"
+			],
+			[
+				"manager",
+				"js/module/util/lib/iscroll/Manager.js"
+			],
+			[
+				"style.scss",
+				"css/style.scss"
+			],
+			[
+				"task",
+				"css/scss/component/_task-list.scss"
+			],
+			[
+				"taskview",
+				"js/module/viewmodel/task/TaskViewModel.js"
+			],
+			[
+				"consta",
+				"js/module/util/Constants.js"
+			],
+			[
+				"stor",
+				"js/module/util/Storage.js"
+			],
+			[
+				"vari",
+				"scss/variable/_variables.scss"
+			],
+			[
+				"aside",
+				"dlo/aside.css"
+			],
+			[
+				"var",
+				"msi-app/css/less/lib/bootstrap/variables.less"
+			],
+			[
+				"cons",
+				"js/module/util/Constants.js"
+			],
+			[
+				"style.css",
+				"css/style.css"
+			],
+			[
+				"jquerymobile",
+				"js/lib/jquery-mobile/jquery.mobile-1.1.1.js"
+			],
+			[
+				"boot",
+				"css/scss/lib/bootstrap/_bootstrap.scss"
+			],
+			[
+				"bootsta",
+				"js/lib/bootstrap/bootstrap.js"
+			],
+			[
+				"isc",
+				"js/lib/iscroll/iscroll.js"
+			],
+			[
+				"util",
+				"scss/lib/_util.scss"
+			],
+			[
+				"form",
+				"scss/component/_form.scss"
+			],
+			[
+				"variab",
+				"scss/variable/_variables.scss"
+			],
+			[
+				"mis",
+				"scss/component/_misc.scss"
+			],
+			[
+				"con",
+				"js/module/util/Constants.js"
+			],
+			[
+				"inde",
+				"index.html"
+			],
+			[
+				"requ",
+				"js/lib/requirejs/require.js"
+			],
+			[
+				"moder",
+				"js/lib/modernizr/modernizr-2.5.3-respond-1.1.0.min.js"
+			],
+			[
+				"test",
+				"test.html"
+			],
+			[
+				"qunit",
+				"js/lib/qunit/qunit.js"
+			],
+			[
+				"taskc",
+				"js/module/util/communication/TaskComms.js"
+			],
+			[
+				"tasktest",
+				"msi-app/js/test/model/task/TaskModelTest.js"
+			],
+			[
+				"s",
+				"msi-app/js/script.js"
+			],
+			[
+				"sky",
+				"js/module/viewmodel/SkyscraperViewmodel.js"
+			],
+			[
+				"knock",
+				"js/lib/knockoutjs/knockout-2.1.0.debug.js"
+			],
+			[
+				"tree",
+				"scss/component/_tree.scss"
+			],
+			[
+				"jquery",
+				"js/lib/jquery/jquery-1.7.2.js"
+			],
+			[
+				"car",
+				"js/lib/bootstrap/carousel.js"
+			],
+			[
+				"quesion",
+				"js/test/model/item/QuestionTest.js"
+			],
+			[
+				"question",
+				"js/module/model/item/Question.js"
+			],
+			[
+				"quest",
+				"js/module/model/item/Question.js"
+			],
+			[
+				"bootst",
+				"less/libs/bootstrap/bootstrap.less"
+			],
+			[
+				"as",
+				"aside.css"
+			],
+			[
+				"utl",
+				"scss/lib/_util.scss"
+			],
+			[
+				"asicss",
+				"aside.css"
+			],
+			[
+				"ut",
+				"scss/lib/_util.scss"
+			],
+			[
+				"mixin",
+				"stop-cl/less/lib/bootstrap/mixins.less"
+			],
+			[
+				"rep",
+				"stop-cl/js/module/viewmodel/Report.js"
+			],
+			[
+				"butt",
+				"dlo/scss/components/_button.scss"
+			],
+			[
+				"lay",
+				"dlo/scss/components/_layout.scss"
+			],
+			[
+				"uti",
+				"dlo/scss/lib/_util.scss"
+			],
+			[
+				"header",
+				"mom/target/mom-0.0.0.0/WEB-INF/ui/fragments/header.xhtml"
+			],
+			[
+				"app",
+				"mom/target/mom-0.0.0.0/WEB-INF/ui/templates/app.xhtml"
+			],
+			[
+				"tab",
+				"scss/components/_tab.scss"
+			],
+			[
+				"asd",
+				"aside.scss"
+			],
+			[
+				"multi",
+				"scss/components/_multirow.scss"
+			],
+			[
+				"modules",
+				"js/modules/viewmodel/SearchViewModel.js"
+			],
+			[
+				"acc",
+				"scss/components/_accordion.scss"
+			],
+			[
+				"asi",
+				"aside.css.orig"
+			],
+			[
+				"hum",
+				"humans.txt"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 210.0,
+	"status_bar_visible": true
+}

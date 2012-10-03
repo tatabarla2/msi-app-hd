@@ -1,0 +1,245 @@
+<div data-role="collapsible" data-content-theme="a" data-collapsed="false">
+  <h3>Meta Details</h3>
+  <div class="row-fluid form-mini">
+    <div class="span6">
+      <div class="control-group">
+        <label class="control-label"><i class="icon-ok"></i> Object Type</label>
+        <div class="controls control-text">
+          <span data-bind="text: metaInformation.ddobjecttype(), css: { 'muted': (metaInformation.ddobjecttype() === 'n/a') }"></span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label"><i class="icon-user"></i> Current User Name</label>
+        <div class="controls control-text">
+          <span data-bind="text: metaInformation.ddcurrentusername(), css: { 'muted': (metaInformation.ddcurrentusername() === 'n/a') }"></span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label"><i class="icon-user"></i> Event User Name</label>
+        <div class="controls control-text">
+          <span data-bind="text: metaInformation.ddeventusername(), css: { 'muted': (metaInformation.ddeventusername() === 'n/a') }"></span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label"><i class="icon-user"></i> Enterprise Info</label>
+        <div class="controls control-text">
+          <span data-bind="text: metaInformation.ddenterpriseinfo(), css: { 'muted': (metaInformation.ddenterpriseinfo() === 'n/a') }"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="span6">
+      <div class="control-group">
+        <label class="control-label"><i class="icon-map-marker"></i> Current Stage</label>
+        <div class="controls control-text">
+          <span data-bind="text: metaInformation.ddcurrentstage(), attr: { class: metaInformation.ddcurrentstage() }"></span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label"><i class="icon-calendar"></i> Process Code</label>
+        <div class="controls control-text">
+          <span data-bind="text: metaInformation.ddprocesscode(), css: { 'muted': (metaInformation.ddprocesscode() === 'n/a') }"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div data-role="collapsible" data-content-theme="a" data-collapsed="false">
+  <h3>Task Details</h3>
+  <div class="row-fluid form-mini">
+    <div class="span6">
+      <div class="control-group">
+        <label class="control-label"><i class="icon-ok"></i> Task Name</label>
+        <div class="controls control-text">
+          <span data-bind="text: taskInformation.taskname(), css: { 'muted': (taskInformation.taskname() === 'n/a') }"></span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label"><i class="icon-ok"></i> RE1 Task Name</label>
+        <div class="controls control-text">
+          <span data-bind="text: taskInformation.re1TASKNAME(), css: { 'muted': (taskInformation.re1TASKNAME() === 'n/a') }"></span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label"><i class="icon-book"></i> Instructions</label>
+        <div class="controls control-text">
+          <span data-bind="text: taskInformation.taskinstructions(), css: { 'muted': (taskInformation.taskinstructions() === 'n/a') }"></span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label"><i class="icon-user"></i> Approver</label>
+        <div class="controls control-text">
+          <span data-bind="text: taskInformation.taskapprover(), css: { 'muted': (taskInformation.taskapprover() === 'n/a') }"></span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label"><i class="icon-user"></i> Owner</label>
+        <div class="controls control-text">
+          <span data-bind="text: taskInformation.taskowner(), css: { 'muted': (taskInformation.taskowner() === 'n/a') }"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="span6">
+      <div class="control-group">
+        <label class="control-label"><i class="icon-map-marker"></i> Status</label>
+        <div class="controls control-text">
+          <span data-bind="text: taskInformation.taskstatus(), attr: { class: taskInformation.statusClass() }"></span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label"><i class="icon-trophy"></i> Results</label>
+        <div class="controls control-text">
+          <span data-bind="text: taskInformation.taskresult(), css: { 'muted': (taskInformation.taskresult() === 'n/a') }"></span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label"><i class="icon-time"></i> Time Spent</label>
+        <div class="controls control-text">
+          <span data-bind="text: taskInformation.tasktimespent(), css: { 'muted': (taskInformation.tasktimespent() === 'n/a') }"></span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label"><i class="icon-check"></i> Check List Name</label>
+        <div class="controls control-text">
+          <span data-bind="text: taskInformation.checklistname(), css: { 'muted': (taskInformation.checklistname() === 'n/a') }"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div data-role="collapsible" data-content-theme="a" data-collapsed="false">
+  <h3>Audit Details</h3>
+  <div class="row-fluid form-mini">
+    <div class="span6">
+      <div class="control-group">
+        <label class="control-label"><i class="icon-bookmark"></i> Title</label>
+        <div class="controls control-text">
+          <span data-bind="text: taskAuditInformation.audittitle(), css: { 'muted': (taskAuditInformation.audittitle() === 'n/a') }"></span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label"><i class="icon-calendar"></i> Actions</label>
+        <div class="controls control-text">
+          <span data-bind="text: taskAuditInformation.auditactions(), css: { 'muted': (taskAuditInformation.auditactions() === 'n/a') }"></span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label"><i class="icon-screenshot"></i> Purpose</label>
+        <div class="controls control-text">
+          <span data-bind="html: taskAuditInformation.auditpurpose(), css: { 'muted': (taskAuditInformation.auditpurpose() === 'n/a') }"></span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label"><i class="icon-legal"></i> Auditable Entities</label>
+        <div class="controls control-text">
+          <span data-bind="text: taskAuditInformation.auditauditableentities(), css: { 'muted': (taskAuditInformation.auditauditableentities() === 'n/a') }"></span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label"><i class="icon-fire"></i> Related Risks</label>
+        <div class="controls control-text">
+          <span data-bind="text: taskAuditInformation.auditrelatedrisks(), css: { 'muted': (taskAuditInformation.auditrelatedrisks() === 'n/a') }"></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="span6">
+      <div class="control-group">
+        <label class="control-label"><i class="icon-user"></i> Lead Auditor</label>
+        <div class="controls control-text">
+          <span data-bind="text: taskAuditInformation.auditleadauditor(), css: { 'muted': (taskAuditInformation.auditleadauditor() === 'n/a') }"></span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label"><i class="icon-user"></i> Manager</label>
+        <div class="controls control-text">
+          <span data-bind="text: taskAuditInformation.auditmanager(), css: { 'muted': (taskAuditInformation.auditmanager() === 'n/a') }"></span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label"><i class="icon-sitemap"></i> Organization</label>
+        <div class="controls control-text">
+          <span data-bind="text: taskAuditInformation.auditorganistions(), css: { 'muted': (taskAuditInformation.auditorganistions() === 'n/a') }"></span>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label"><i class="icon-user"></i> Conducted By</label>
+        <div class="controls control-text">
+          <span data-bind="text: taskAuditInformation.auditconductedbyorg(), css: { 'muted': (taskAuditInformation.auditconductedbyorg() === 'n/a') }"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div data-role="collapsible" data-content-theme="a" data-collapsed="false">
+  <h3>Task Execution</h3>
+  <div class="row-fluid">
+    <div class="span6">
+      <div class="control-group">
+        <label class="control-label control-jqm"><i class="icon-trophy"></i> Result</label>
+        <div class="controls">
+          <select>
+            <option>Started</option>
+            <option>Completed</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="span6">
+      <div class="control-group">
+        <label class="control-label control-jqm">Actions</label>
+        <div class="controls">
+          <select>
+            <option>Started</option>
+            <option>Completed</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="control-group">
+      <label class="control-label control-jqm">Work Done</label>
+      <div class="controls">
+        <textarea class="span12" rows="3" data-bind="value: taskInformation.taskworkdone, valueUpdate: 'afterkeydown'"></textarea>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label class="control-label control-jqm">Results</label>
+      <div class="controls">
+        <textarea class="span12" rows="3" data-bind="value: taskAuditInformation.auditresults, valueUpdate: 'afterkeydown'"></textarea>
+      </div>
+    </div>
+  </div>
+  <div class="row-fluid">
+    <div class="span3">
+      <a href="javascript:void(0)" data-role="button" data-icon="delete">Clear</a>
+    </div>
+    <div class="span9">
+      <a href="javascript:void(0)" data-role="button" data-icon="check" data-bind="click: $parent.saveTask">Submit</a>
+    </div>
+  </div>
+</div>

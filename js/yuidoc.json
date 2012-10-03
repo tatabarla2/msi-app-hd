@@ -1,0 +1,9 @@
+{
+    "name": "MSI App - Docs",
+    "description": "MetricStream Mobile App - API documentation",
+    "version": "0.2.0",
+    "url": "http://www.metricstream.com",
+    "options": {
+        "outdir": "../../docs"
+    }
+}

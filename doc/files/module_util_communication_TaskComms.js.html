@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>module\util\communication\TaskComms.js - MSI App - Docs</title>
+    <link rel="stylesheet" href="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;3.7.0&#x2F;build&#x2F;cssgrids&#x2F;cssgrids-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="..&#x2F;assets/favicon.png">
+    <script src="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;combo?3.7.0&#x2F;build&#x2F;yui&#x2F;yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="&#x2F;msi-app&#x2F;img&#x2F;metricstream&#x2F;metricstream-logo-black.png" title="MSI App - Docs"></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 0.2.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="..&#x2F;classes/SettingModel.html">SettingModel</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: module\util\communication\TaskComms.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+&#x2F;**
+ * TaskComms
+ * The TaskComms module.
+ *&#x2F;
+define([
+	&quot;lib.use!lib.debug&quot;,
+	&quot;util.Constants&quot;,
+	&quot;util.ErrorHandler&quot;,
+	&quot;util.Storage&quot;,
+	&quot;util.communication.Communication&quot;,
+	&quot;lib.knockoutjs&quot;,
+	&quot;jquery&quot;
+],
+function(
+	debug,
+	Constants,
+	ErrorHandler,
+	Storage,
+	Communication,
+	ko,
+	jQuery
+) {
+	&quot;use strict&quot;;
+
+	var Module = function() {
+		var self = this;
+
+		self.initialize = function() {
+			debug.log(&quot;util.communication.TaskComms&quot;, &quot;initialize&quot;, &quot;Initializing module&quot;);
+		};
+
+		self.retrieveTasks = function(rawSettings, onSuccessHandler) {
+			debug.log(&quot;util.communication.TaskComms&quot;, &quot;retrieveTasks&quot;, { rawSettings: rawSettings, onSuccessHandler: onSuccessHandler });
+			var storage = Storage.createModule();
+			var fetchFromServer = false;
+
+			var errorHandler = ErrorHandler.createModule();
+
+			var taskData = null;
+
+			&#x2F;&#x2F; TODO Implement client side intelligent caching
+			fetchFromServer = true;
+
+			if(true === fetchFromServer) {
+				jQuery.ajax({
+					url:
+						rawSettings.api.metricstream.baseUrl +
+						Constants.api.metricstream.methods.task.receive.url,
+					type: &quot;GET&quot;,
+					dataType: &quot;json&quot;,
+					&#x2F;&#x2F; Make this an async call so the UI thread doesn&#x27;t block.
+					async: true,
+					cache: true,
+					data: {
+						username: rawSettings.settings.general.username,
+						password: rawSettings.settings.general.password,
+						callback: &quot;callback&quot;
+					},
+					beforeSend: function(jqXHR, settings) {
+						debug.log(&quot;util.communication.TaskComms&quot;, &quot;retrieveTasks&quot;, &quot;beforeSend&quot;, jqXHR, settings);
+					},
+					complete: function(jqXHR, settings) {
+						debug.log(&quot;util.communication.TaskComms&quot;, &quot;retrieveTasks&quot;, &quot;complete&quot;, jqXHR, settings);
+					},
+					error: function(jqXHR, textStatus, errorThrown) {
+						debug.error(&quot;util.communication.TaskComms&quot;, &quot;retrieveTasks&quot;, &quot;error&quot;, jqXHR, textStatus, errorThrown);
+
+						var storedContents = null;
+
+						&#x2F;&#x2F; On error, load from local cache.
+						switch(storage.isAlreadyAvailable(Constants.keyrings.tasks)) {
+							case Constants.errors.storage.FOUND:
+								&#x2F;&#x2F; FIXME If a second user is logged in, then don&#x27;t load data for the first user.
+								storedContents = storage.load(Constants.keyrings.tasks);
+								taskData = storedContents.contents;
+								debug.warn(&quot;util.communication.TaskComms&quot;, &quot;retrieveTasks&quot;, &quot;Using locally cached data.&quot;, taskData);
+								errorHandler.showWarn(&quot;Using locally cached data from &quot; + new Date(storedContents.timestamp).toLocaleString());
+
+								debug.log(&quot;util.communication.TaskComms&quot;, &quot;retrieveTasks&quot;, &quot;complete&quot;, &quot;Calling onSuccessHandler&quot;, { onSuccessHandler: onSuccessHandler });
+								onSuccessHandler.call(undefined, taskData);
+							break;
+
+							case Constants.errors.storage.NOT_FOUND:
+								debug.error(&quot;util.communication.TaskComms&quot;, &quot;retrieveTasks&quot;, Constants.errors.storage.NOT_FOUND.message);
+								errorHandler.showError(&quot;Sorry, unable to load your data. Please check your network settings and try again.&quot;);
+							break;
+
+							case Constants.errors.storage.NOT_AVAILABLE:
+								debug.error(&quot;util.communication.TaskComms&quot;, &quot;retrieveTasks&quot;, Constants.errors.storage.NOT_AVAILABLE.message);
+								errorHandler.showError(&quot;Sorry, your device does not support HTML5 local storage.&quot;);
+							break;
+						}
+					},
+					success: function(data, textStatus, jqXHR) {
+						debug.info(&quot;util.communication.TaskComms&quot;, &quot;retrieveTasks&quot;, &quot;success&quot;, data, textStatus, jqXHR);
+
+						debug.log(&quot;util.communication.TaskComms&quot;, &quot;retrieveTasks&quot;, &quot;Checking status&quot;, data.taskStatus);
+						switch(data.taskStatus) {
+							case Constants.errors.communication.OK.message:
+								debug.log(&quot;util.communication.TaskComms&quot;, &quot;retrieveTasks&quot;, &quot;Status: &quot; + Constants.errors.communication.OK.message + &quot;, processing tasks&quot;);
+
+								var now = new Date();
+
+								debug.log(&quot;util.communication.TaskComms&quot;, &quot;retrieveTasks&quot;, &quot;Creating container&quot;, now, data);
+								var container = {
+									timestamp: now.getTime(),
+									contents: data.taskDetails
+								};
+
+								debug.log(&quot;util.communication.TaskComms&quot;, &quot;retrieveTasks&quot;, &quot;Saving to localstorage&quot;, storage);
+								storage.save(Constants.keyrings.tasks, container);
+
+								debug.log(&quot;util.communication.TaskComms&quot;, &quot;retrieveTasks&quot;, &quot;Returning data&quot;, data);
+								taskData = data.taskDetails;
+
+								debug.log(&quot;util.communication.TaskComms&quot;, &quot;retrieveTasks&quot;, &quot;complete&quot;, &quot;Calling onSuccessHandler&quot;, { onSuccessHandler: onSuccessHandler });
+								errorHandler.showInfo(&quot;Tasks successfully loaded.&quot;);
+								onSuccessHandler.call(undefined, taskData);
+
+							break;
+
+							case Constants.errors.communication.ERROR.message:
+								errorHandler.showError(&quot;Oops! &quot; + data.message);
+							break;
+						}
+					}
+				});
+			}
+		};
+
+		self.transmitData = function(data, rawSettings, onSuccessHandler) {
+			debug.log(&quot;util.communication.TaskComms&quot;, &quot;transmitData&quot;, &quot;Transmitting data...&quot;, { data: data });
+
+			var errorHandler = ErrorHandler.createModule();
+
+			&#x2F;&#x2F; HACK Remove username&#x2F;password from here
+			&#x2F;&#x2F; and pass it as a separate JSON object.
+
+			data.username = rawSettings.settings.general.username;
+			data.password = rawSettings.settings.general.password;
+
+			jQuery.ajax({
+				url:	rawSettings.api.metricstream.baseUrl +
+							Constants.api.metricstream.methods.task.transmit.url,
+				type: &quot;POST&quot;,
+				async: true,
+				cache: true,
+				data: data,
+				beforeSend: function(jqXHR, settings) {
+					debug.log(&quot;util.communication.TaskComms&quot;, &quot;transmitData&quot;, &quot;beforeSend&quot;, { jqXHR: jqXHR, settings: settings });
+				},
+				complete: function(jqXHR, settings) {
+					debug.log(&quot;util.communication.TaskComms&quot;, &quot;transmitData&quot;, &quot;complete&quot;, { jqXHR: jqXHR, settings: settings });
+				},
+				error: function(jqXHR, textStatus, errorThrown) {
+					debug.log(&quot;util.communication.TaskComms&quot;, &quot;transmitData&quot;, &quot;error&quot;, { jqXHR: jqXHR, textStatus: textStatus, errorThrown: errorThrown });
+
+					errorHandler.showError(&quot;Unable to connect to server. Please try again later.&quot;);
+				},
+				success: function(data, textStatus, jqXHR) {
+					debug.log(&quot;util.communication.TaskComms&quot;, &quot;transmitData&quot;, &quot;success&quot;, { data: data, textStatus: textStatus, jqXHR: jqXHR});
+
+					debug.log(&quot;util.communication.TaskComms&quot;, &quot;retrieveTasks&quot;, &quot;complete&quot;, &quot;Calling onSuccessHandler&quot;, { onSuccessHandler: onSuccessHandler });
+					onSuccessHandler.call(undefined, data);
+
+					errorHandler.showInfo(&quot;Task successfully submitted: &quot; + data);
+				}
+			});
+		};
+
+		self.initialize();
+		return self;
+	};
+
+	return {
+		createModule: function() {
+			return (new Module());
+		}
+	};
+});
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="..&#x2F;assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="..&#x2F;assets/js/yui-prettify.js"></script>
+<script src="..&#x2F;assets/../api.js"></script>
+<script src="..&#x2F;assets/js/api-filter.js"></script>
+<script src="..&#x2F;assets/js/api-list.js"></script>
+<script src="..&#x2F;assets/js/api-search.js"></script>
+<script src="..&#x2F;assets/js/apidocs.js"></script>
+</body>
+</html>

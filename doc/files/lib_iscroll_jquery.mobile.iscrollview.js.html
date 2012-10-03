@@ -1,0 +1,1957 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>lib\iscroll\jquery.mobile.iscrollview.js - MSI App - Docs</title>
+    <link rel="stylesheet" href="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;3.7.0&#x2F;build&#x2F;cssgrids&#x2F;cssgrids-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/vendor/prettify/prettify-min.css">
+    <link rel="stylesheet" href="..&#x2F;assets/css/main.css" id="site_styles">
+    <link rel="shortcut icon" type="image/png" href="..&#x2F;assets/favicon.png">
+    <script src="http:&#x2F;&#x2F;yui.yahooapis.com&#x2F;combo?3.7.0&#x2F;build&#x2F;yui&#x2F;yui-min.js"></script>
+</head>
+<body class="yui3-skin-sam">
+
+<div id="doc">
+    <div id="hd" class="yui3-g header">
+        <div class="yui3-u-3-4">
+            
+                <h1><img src="&#x2F;msi-app&#x2F;img&#x2F;metricstream&#x2F;metricstream-logo-black.png" title="MSI App - Docs"></h1>
+            
+        </div>
+        <div class="yui3-u-1-4 version">
+            <em>API Docs for: 0.2.0</em>
+        </div>
+    </div>
+    <div id="bd" class="yui3-g">
+
+        <div class="yui3-u-1-4">
+            <div id="docs-sidebar" class="sidebar apidocs">
+                <div id="api-list">
+    <h2 class="off-left">APIs</h2>
+    <div id="api-tabview" class="tabview">
+        <ul class="tabs">
+            <li><a href="#api-classes">Classes</a></li>
+            <li><a href="#api-modules">Modules</a></li>
+        </ul>
+
+        <div id="api-tabview-filter">
+            <input type="search" id="api-filter" placeholder="Type to filter APIs">
+        </div>
+
+        <div id="api-tabview-panel">
+            <ul id="api-classes" class="apis classes">
+            
+                <li><a href="..&#x2F;classes/SettingModel.html">SettingModel</a></li>
+            
+            </ul>
+
+            <ul id="api-modules" class="apis modules">
+            
+            </ul>
+        </div>
+    </div>
+</div>
+
+            </div>
+        </div>
+        <div class="yui3-u-3-4">
+                <div id="api-options">
+        Show:
+        <label for="api-show-inherited">
+            <input type="checkbox" id="api-show-inherited" checked>
+            Inherited
+        </label>
+
+        <label for="api-show-protected">
+            <input type="checkbox" id="api-show-protected">
+            Protected
+        </label>
+
+        <label for="api-show-private">
+            <input type="checkbox" id="api-show-private">
+            Private
+        </label>
+        <label for="api-show-deprecated">
+            <input type="checkbox" id="api-show-deprecated">
+            Deprecated
+        </label>
+
+    </div>
+
+
+            <div class="apidocs">
+                <div id="docs-main">
+                    <div class="content">
+                        <h1 class="file-heading">File: lib\iscroll\jquery.mobile.iscrollview.js</h1>
+
+<div class="file">
+    <pre class="code prettyprint linenums">
+&#x2F;******************************************************************************
+  jslint directives. In case you hate yourself, and need that reinforced...
+
+  You will still get a few warnings that can&#x27;t be turned off, or that I&#x27;m just
+  too stubborn to &quot;fix&quot;
+
+  sloppy, white: let me indent any way I damn please! I like to line things
+                 up nice and purty.
+
+  nomen: tolerate leading _ for variable names. Leading _ is a requirement for
+         JQuery Widget Factory private members
+*******************************************************************************&#x2F;
+
+&#x2F;*jslint browser: true, sloppy: true, white: true, nomen: true, regexp: true, todo: true, 
+maxerr: 50, indent: 2 *&#x2F;
+&#x2F;*global jQuery:false, iScroll:false, console:false, Event:false*&#x2F;
+
+&#x2F;*******************************************************************************
+  But instead, be kind to yourself, and use jshint.
+
+  Note jshint nomen and white options are opposite of jslint
+
+  You can&#x27;t specify an indent of you use white: false, otherwise it will
+  still complain
+*******************************************************************************&#x2F;
+
+&#x2F;*jshint forin:true, noarg:true, noempty:true, eqeqeq:true, bitwise:true, strict:true, undef:true, 
+curly:true, browser:true, jquery:true, indent:2, maxerr:50, sloppy:true, white:false, nomen:false, 
+regexp:false, todo:true *&#x2F;
+
+
+&#x2F;*
+jquery.mobile.iscrollview.js
+Version: 1.2.4
+jQuery Mobile iScroll4 view widget
+Copyright (c), 2012 Watusiware Corporation
+Distributed under the MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this
+software and associated documentation files (the &quot;Software&quot;), to deal in the Software
+without restriction, including without limitation the rights to use, copy, modify,
+merge, publish, distribute, sublicense, and&#x2F;or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to the following
+conditions: NO ADDITIONAl CONDITIONS.
+
+The above copyright notice and this permission notice shall be included in all copies
+or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR
+PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE
+FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+DEALINGS IN THE SOFTWARE.
+
+Derived in part from jquery.mobile.iscroll.js:
+Portions Copyright (c) Kazuhiro Osawa
+Dual licensed under the MIT or GPL Version 2 licenses.
+
+Derived in part from (jQuery mobile) jQuery UI Widget-factory
+plugin boilerplate (for 1.8&#x2F;9+)
+Author: @scottjehl
+Further changes: @addyosmani
+Licensed under the MIT license
+
+dependency:  iScroll 4.1.9 https:&#x2F;&#x2F;github.com&#x2F;cubiq&#x2F;iscroll or later (4.2 provided in demo)
+             jQuery 1.6.4  (JQM 1.0.1) or 1.7.1 (JQM 1.1) or 1.7.2 (JQM 1.2)
+             JQuery Mobile = 1.0.1 or 1.1 or 1.2-alpha1
+*&#x2F;
+
+;   &#x2F;&#x2F; Ignore jslint&#x2F;jshint warning - for safety - terminate previous file if unterminated
+
+(function ($, window, document, undefined) {   &#x2F;* Ignore islint warning on &quot;undefined&quot; *&#x2F;
+  &quot;use strict&quot;;
+
+  &#x2F;&#x2F;----------------------------------
+  &#x2F;&#x2F; &quot;class constants&quot;
+  &#x2F;&#x2F;----------------------------------
+  var HasTouch = document.ontouchend !== undefined,
+      IsWebkit =  (&#x2F;webkit&#x2F;i).test(navigator.appVersion),
+      IsAndroid = (&#x2F;android&#x2F;gi).test(navigator.appVersion),
+      IsFirefox = (&#x2F;firefox&#x2F;i).test(navigator.userAgent),
+      IsTouchPad = (&#x2F;hp-tablet&#x2F;gi).test(navigator.appVersion),
+      IsIDevice = (&#x2F;(iPhone|iPad|iPod).*AppleWebKit&#x2F;).test(navigator.appVersion),
+      IsIPad = (&#x2F;iPad.*AppleWebKit&#x2F;).test(navigator.appVersion),
+      &#x2F;&#x2F; IDevice running Mobile Safari - not embedded UIWebKit or Standalone (= saved to desktop)
+      IsMobileSafari = (&#x2F;(iPhone|iPad|iPod).*AppleWebKit.*Safari&#x2F;).test(navigator.appVersion),
+      &#x2F;&#x2F; IDevice native app using embedded UIWebView
+      IsUIWebView = (&#x2F;(iPhone|iPad|iPod).*AppleWebKit.(?!.*Safari)&#x2F;).test(navigator.appVersion),
+      &#x2F;&#x2F; Standalone is when running a website saved to the desktop (SpringBoard)
+      IsIDeviceStandalone = IsIDevice &amp;&amp; (window.navigator.Standalone !== undefined),
+
+      &#x2F;&#x2F; Kludgey way to seeing if we have JQM v1.0.x, since there apparently is no
+      &#x2F;&#x2F; way to access the version number!
+      JQMIsV1_0 = $.mobile.ignoreContentEnabled === undefined,
+
+      nextPageID = 1;      &#x2F;&#x2F; Used to generate event namespaces
+
+
+   &#x2F;* Placed here instead of anonymous functions to facilitate debugging.
+      No logging, because these events are too frequent *&#x2F;
+
+  function _pageTouchmoveFunc(e) {
+    e.preventDefault();
+    }
+
+  &#x2F;&#x2F;===============================================================================
+  &#x2F;&#x2F; This essentially subclasses iScroll. Originally, this was just so that we could
+  &#x2F;&#x2F; inject an iscrollview variable at the time of construction (so that it is
+  &#x2F;&#x2F; available from the refresh callback which is first called during construction).
+  &#x2F;&#x2F; But now we override several iScroll methods, as well.
+  &#x2F;&#x2F;===============================================================================
+    &#x2F;&#x2F; See: www.golimojo.com&#x2F;etc&#x2F;js-subclass.html
+  function _subclass(constructor, superConstructor) {
+    function SurrogateConstructor() {}
+    SurrogateConstructor.prototype = superConstructor.prototype;
+    var prototypeObject = new SurrogateConstructor();
+    prototypeObject.constructor = constructor;
+    constructor.prototype = prototypeObject;
+    }
+
+  function IScroll(iscrollview, scroller, options) {
+
+    &#x2F;&#x2F; We need to add an iscrollview member to iScroll, so that we can efficiently
+    &#x2F;&#x2F; pass the iscrollview when triggering jQuery events. Otherwise, we&#x27;d have to
+    &#x2F;&#x2F; make a call to $(wrapper).jqmData() on each event trigger, which could have an impact
+    &#x2F;&#x2F; on performance for high-frequency events.
+    this.iscrollview = iscrollview;
+
+    &#x2F;&#x2F; The following functions are called from the proxy event functions. These are things
+    &#x2F;&#x2F; we want to do in certain iScroll4 events.
+
+    &#x2F;&#x2F; Emulate bottomOffset functionality in case iScroll doesn&#x27;t have patch for bottomOffset
+    this._emulateBottomOffset =  function(e) {
+      if (this.iscrollview.options.emulateBottomOffset) {
+        this.maxScrollY = this.wrapperH - this.scrollerH +
+          this.minScrollY + this.iscrollview.options.bottomOffset;
+        }
+    };
+
+    &#x2F;&#x2F; Allow mouse clicks through to input elements
+    &#x2F;&#x2F; Note that this is not an issue for touch devices, just mouse
+    this._fixInput = function(e) {
+     if (this.iscrollview.options.fixInput ) {
+       var tagName,
+           target = e.target;
+       while (target.nodeType !== 1) { target = target.parentNode; }
+         tagName = target.tagName.toLowerCase();
+         if (tagName === &quot;select&quot; || tagName === &quot;input&quot; || tagName === &quot;textarea&quot;) {
+           return;
+         }
+       }
+
+      &#x2F;&#x2F; If preventTouchHover, stop hover from occuring inside scroller for jQuery Mobile 1.0
+      &#x2F;&#x2F; (Not used for 1.1)
+      if (this.iscrollview.options.preventTouchHover) { e.stopImmediatePropagation(); }
+      else                                            { e.preventDefault(); }
+    };
+
+    &#x2F;&#x2F; Perform an iScroll callback.
+    this._doCallback = function(callbackName, e, f) {
+      var v = this.iscrollview,
+          then = v._logCallback(callbackName, e);
+      if (f) { f.call(this, e); }                          &#x2F;&#x2F; Perform passed function if present
+      v._trigger(callbackName.toLowerCase(), e, {&quot;iscrollview&quot;: v}); &#x2F;&#x2F; Then trigger widget event
+      v._logCallback(callbackName, e, then);
+    };
+
+    &#x2F;&#x2F; Override _bind and _unbind functions in iScroll, so that we can monitor performance,
+    &#x2F;&#x2F; gain control over events reaching&#x2F;not reaching iScroll, and potentially use jQuery events
+    &#x2F;&#x2F; instead of addEventListener().
+    &#x2F;&#x2F;
+    &#x2F;&#x2F; As of v1.2, using jQuery events is an experimental feature, and does not work in all
+    &#x2F;&#x2F; scenarios. For example, jQuery 1.7.1 breaks mousewheel support. This feature is left in
+    &#x2F;&#x2F; only to permit further experimentation.
+    &#x2F;&#x2F;
+    &#x2F;&#x2F; If using jQuery events, we ignore bubble (really, useCapture) parameter. Fortunately,
+    &#x2F;&#x2F; iScroll never uses it.
+    &#x2F;&#x2F;
+    &#x2F;&#x2F; If using jQuery events, we substitute jQuery&#x27;s mouseleave for mouseout, to prevent iScroll
+    &#x2F;&#x2F; from getting a cascade of events when the mouse enters some inner element within the
+    &#x2F;&#x2F; scroller. iScroll is only interested in the mouse leaving the scroller to the OUTSIDE.
+    &#x2F;&#x2F; While iScroll doesn&#x27;t spend much time in the callback if moving to an inner element,
+    &#x2F;&#x2F; the cascade of events is annoying when monitoring performance with the debug option.
+
+    this._bind = function (type, el, bubble) {
+      var jqEvents = this.iscrollview.options.bindIscrollUsingJqueryEvents,
+          _type =  jqEvents &amp;&amp; type === &quot;mouseout&quot; ? &quot;mouseleave&quot; : type;
+      &#x2F;&#x2F; Ignore attempt to bind to orientationchange or resize, since the widget handles that
+      if (type === &quot;orientationchange&quot; || type === &quot;resize&quot;) {
+        this.iscrollview._logIscrollEvent(&quot;iScroll bind (ignored)&quot;, type);
+        return;
+      }
+      this.iscrollview._logIscrollEvent(&quot;iScroll bind&quot;, type);
+      if (jqEvents) { (el ? $(el) : this.iscrollview.$scroller).bind(_type, $.proxy(this.handleEvent, this)); }
+      else          { (el || this.scroller).addEventListener(_type, this, !!bubble); }
+    };
+
+    this._unbind = function(type, el, bubble) {
+      var jqEvents = this.iscrollview.options.bindIscrollUsingJqueryEvents,
+          _type = jqEvents &amp;&amp; type === &quot;mouseout&quot; ? &quot;mouseleave&quot; : type;
+      if (type === &quot;orientationchange&quot; || type === &quot;resize&quot;) {
+        this.iscrollview._logIscrollEvent(&quot;iScroll unbind (ignored)&quot;);
+        return;
+      }
+      this.iscrollview._logIscrollEvent(&quot;iScroll unbind&quot;, type);
+      if (jqEvents) { $(el || this.iscrollview.$scroller).unbind(_type, this.handleEvent); }
+      else          {  (el || this.scroller).removeEventListener(_type, this, !!bubble); }
+    };
+
+    &#x2F;&#x2F; Save a reference to the original handleEvent in iScroll. We&#x27;ll need to call it from our
+    &#x2F;&#x2F; override.
+    this._origHandleEvent = iScroll.prototype.handleEvent;
+
+    &#x2F;&#x2F; Shim around iScroll.handleEvent, allows us to trace
+    this.handleEvent = function(e) {
+      var jqEvents = this.iscrollview.options.bindIscrollUsingJqueryEvents,
+          then;
+      then = this.iscrollview._logIscrollEvent(&quot;iScroll.handleEvent&quot;, e);
+      &#x2F;&#x2F; If jQuery mouseleave, make iScroll think we are handling a mouseout event
+      if (jqEvents &amp;&amp; e.type === &quot;mouseleave&quot;) {
+        e.type = &quot;mouseout&quot;;
+        this._origHandleEvent(e);
+        e.type = &quot;mouseleave&quot;;
+        }
+      else { this._origHandleEvent(e); }
+      this.iscrollview._logIscrollEvent(&quot;iScroll.handleEvent&quot;, e, then);
+    };
+
+    &#x2F;&#x2F; Override _resize function in iScroll, which calls refresh() and is only called on resize
+    &#x2F;&#x2F; and orientationchange events. We call refresh() when necessary, so these are redundant.
+    &#x2F;&#x2F; As well, some refreshes are deferred, and the user will need to refresh any jQuery Mobile
+    &#x2F;&#x2F; widgets using a callbackBefore. So, it makes no sense to have iScroll do event-based
+    &#x2F;&#x2F; refresh.
+    this._resize = function() { };
+
+    iScroll.call(this, scroller, options);
+    }
+
+  _subclass(IScroll, iScroll);
+  $.widget(&quot;mobile.iscrollview&quot;, $.mobile.widget, {
+
+  widgetEventPrefix: &quot;iscroll_&quot;,
+
+  &#x2F;&#x2F;=========================================================
+  &#x2F;&#x2F; All instance variables are declared here. This is not
+  &#x2F;&#x2F; strictly necessary, but is helpful to document the use
+  &#x2F;&#x2F; of instance variables.
+  &#x2F;&#x2F;=========================================================
+
+  iscroll:            null,  &#x2F;&#x2F; The underlying iScroll object
+  $window:            $(window),
+  $wrapper:           [],  &#x2F;&#x2F; The wrapper element
+  $scroller:          [],  &#x2F;&#x2F; The scroller element (first child of wrapper)
+  $scrollerContent:   [],  &#x2F;&#x2F; Content of scroller, sandwitched between any pull-down&#x2F;pull-up
+  $pullDown:          [],  &#x2F;&#x2F; The pull-down element (if any)
+  $pullUp:            [],  &#x2F;&#x2F; The pull-up element (if any)
+  $pullUpSpacer:      [],
+  $page:              [],  &#x2F;&#x2F; The page element that contains the wrapper
+  _wrapperHeightAdjustForBoxModel: 0,  &#x2F;&#x2F; This is set in _create
+
+  _firstScrollerExpand:    true,  &#x2F;&#x2F; True on first scroller expand, so we can capture original CSS
+
+  createdAt:          null,   &#x2F;&#x2F; Time when created - used as unique ID
+  pageID:             null,   &#x2F;&#x2F; Each page that has 1 or more iscrollviews gets a unique page ID #
+  instanceID:         null,   &#x2F;&#x2F; Each isntance of iscrollview created on a page gets a unique instance ID #
+
+  &#x2F;&#x2F; True if this scroller content is &quot;dirty&quot; - i.e. needs refresh because refresh
+  &#x2F;&#x2F; was deferred when the page was not the active page. This does NOT imply that the wrapper
+  &#x2F;&#x2F; needs to be refreshed - see _sizeDirty, below.
+  _dirty:               false,
+  _dirtyCallbackBefore: null,
+  _dirtyCallbackAfter:  null,
+  _sizeDirty:     false,  &#x2F;&#x2F; True if wrapper resize is needed because page size or fixed content
+                          &#x2F;&#x2F;  size changed
+
+  &#x2F;&#x2F;----------------------------------------------------
+  &#x2F;&#x2F; Options to be used as defaults
+  &#x2F;&#x2F;----------------------------------------------------
+  options: {
+    &#x2F;&#x2F; iScroll4 options
+    &#x2F;&#x2F; We only define those options here which have values that differ from
+    &#x2F;&#x2F; iscroll4 defaults.
+    hScroll:    false,   &#x2F;&#x2F; iScroll4 default is true
+    hScrollbar: false,   &#x2F;&#x2F; iScroll4 default is true
+
+    &#x2F;&#x2F; Additional iScroll4 options will be back-filled from iscroll4
+
+    &#x2F;&#x2F; iscrollview widget options
+
+    debug: false,                      &#x2F;&#x2F; Enable some messages to console
+                                       &#x2F;&#x2F; Debug true needed for any trace options
+    traceResizeWrapper: false,         &#x2F;&#x2F; Enable to trace resize wrapper
+    traceRefresh: false,               &#x2F;&#x2F; Enable to trace refresh
+    traceCreateDestroy: false,         &#x2F;&#x2F; Enable to trace create&#x2F;destroy
+    traceIscrollEvents: false,         &#x2F;&#x2F; Enable to trace events handled by iScroll
+    tracedIscrollEvents: [],           &#x2F;&#x2F; List of specific iScroll events to trace, empty list for all
+                                       &#x2F;&#x2F; Items are strings, like &quot;touchstart&quot;
+    traceWidgetEvents: false,          &#x2F;&#x2F; Enable to trace events registered by widget
+    &#x2F;&#x2F; Note: in some cases we might bind to multiple events. You will have to include the multiple
+    &#x2F;&#x2F; events in one string to filter on such a bind. For example, &quot;resize orientationchange&quot;
+    tracedWidgetEvents: [],            &#x2F;&#x2F; List of specific widget events to trace
+    traceIscrollCallbacks: false,      &#x2F;&#x2F; Enable to trace iScroll callbacks to the widget
+    tracedIscrollCallbacks: [],        &#x2F;&#x2F; List of specific iScroll callbacks to trace, empty list for all
+                                       &#x2F;&#x2F; Items are strings, like &quot;onRefresh&quot;
+    traceWidgetCallbacks: false,
+    tracedWidgetCallbacks: [],
+
+
+    &#x2F;&#x2F; bottomOffset is currently only in Watusi-patched iScroll. We emulate it in case it isn&#x27;t
+    &#x2F;&#x2F; there.
+    bottomOffset: 0,
+    emulateBottomOffset: true,
+
+    pageClass:       &quot;iscroll-page&quot;,        &#x2F;&#x2F; Class to be applied to pages containing this widget
+    wrapperClass:    &quot;iscroll-wrapper&quot;,     &#x2F;&#x2F; Class to be applied to wrapper containing this widget
+    scrollerClass:   &quot;iscroll-scroller&quot;,    &#x2F;&#x2F; Class to be applied to scroller within wrapper
+    pullDownClass:   &quot;iscroll-pulldown&quot;,    &#x2F;&#x2F; Class for pulldown element (if any)
+    pullUpClass:     &quot;iscroll-pullup&quot;,      &#x2F;&#x2F; Class for pullup element (if any)
+    pullLabelClass:  &quot;iscroll-pull-label&quot;,  &#x2F;&#x2F; Class for pull element label span
+    pullUpSpacerClass: &quot;iscroll-pullup-spacer&quot;, &#x2F;&#x2F; Class added to generated pullup spacer
+    scrollerContentClass: &quot;iscroll-content&quot;, &#x2F;&#x2F; Real content of scroller, not including pull-up, pull-down
+    fixedHeightClass: &quot;iscroll-fixed&quot;,       &#x2F;&#x2F; Class applied to elements that match fixedHeightSelector
+
+    &#x2F;&#x2F; The widget adds the fixedHeightClass to all elements that match fixedHeightSelector.
+    &#x2F;&#x2F; Don&#x27;t add the fixedHeightClass to elements manually. Use data-iscroll-fixed instead.
+    fixedHeightSelector: &quot;:jqmData(role=&#x27;header&#x27;), :jqmData(role=&#x27;footer&#x27;), :jqmData(iscroll-fixed)&quot;,
+
+    &#x2F;&#x2F; true to resize the wrapper to take all viewport space after fixed-height elements
+    &#x2F;&#x2F; (typically header&#x2F;footer)
+    &#x2F;&#x2F; false to not change the size of the wrapper
+    &#x2F;&#x2F; For example, if using multiple iscrollview widgets on the same page, a maximum
+    &#x2F;&#x2F; of one of them could resize to remaining space. You would need to explicitly
+    &#x2F;&#x2F; set the height of additional iscrollviews and give them the fixed height class.
+    resizeWrapper:  true,
+
+    &#x2F;&#x2F; Space-separated list of events on which to resize&#x2F;refresh iscroll4
+    &#x2F;&#x2F; On some mobile devices you may wish to add&#x2F;substitute orientationchange event
+    &#x2F;&#x2F; iOS 4.x will trigger resize twice then orientationchange
+    &#x2F;&#x2F; iOS 5.x will trigger resize once then orientationchange
+    &#x2F;&#x2F; Android devices can trigger multiple events, but generally orientationchange before resize
+    &#x2F;&#x2F; Devices are inconsistent as to when they first report the new width&#x2F;height
+    &#x2F;&#x2F; Android tends to first trigger orientationchange with the width&#x2F;height unchanged, the
+    &#x2F;&#x2F;  orientationchange with the new width&#x2F;height.
+    &#x2F;&#x2F; Experimentation with other devices would be useful
+    resizeEvents:  &quot;resize&quot; + ($.support.orientation ? &quot; orientationchange&quot; : &quot;&quot;),
+
+    &#x2F;&#x2F; Refresh iscrollview on page show event. This should be true if content inside a
+    &#x2F;&#x2F; scrollview might change while the page is cached but not shown, and application hasn&#x27;t
+    &#x2F;&#x2F; called refresh(), or deferRefresh is false.
+    refreshOnPageBeforeShow: false,
+
+    &#x2F;&#x2F; true to fix iscroll4 input element focus problem in the widget.
+    &#x2F;&#x2F; false if you are using a patched iscroll4 with different fix or to
+    &#x2F;&#x2F; disable for some other reason
+    fixInput: true,
+
+    wrapperAdd: 0,      &#x2F;&#x2F; Shouldn&#x27;t be necessary, but in case user needs to fudge
+                        &#x2F;&#x2F; Can be + or -
+
+    &#x2F;&#x2F; Timeout to allow page to render prior to refresh()
+    refreshDelay:  IsAndroid ? 200 : 0,   &#x2F;&#x2F; Wild-ass guesses
+
+    &#x2F;&#x2F; true to set the minimum height of scroller content (not including
+    &#x2F;&#x2F; any pull-down or pull-up) to the height of the wrapper. Note that
+    &#x2F;&#x2F; if there is a pull-down or pull-up, then this is done regardless of
+    &#x2F;&#x2F; this option, because you have to be able to scroll the empty content
+    &#x2F;&#x2F; to access the pull-down or pull-up. Set this option false if you do
+    &#x2F;&#x2F; not want to show a scrollbar on short content. However, this will have
+    &#x2F;&#x2F; the side-effect of making the &quot;empty&quot; part of the scroller non-draggable.
+    &#x2F;&#x2F; Leaving this true provides a more consistent UI behaviour.
+    scrollShortContent: true,
+
+    &#x2F;&#x2F; Normally, we need the wrapper to have no padding. Otherwise, the result will look awkward,
+    &#x2F;&#x2F; you won&#x27;t be able to grab the padded area to scroll, etc.
+    removeWrapperPadding: true,
+
+    &#x2F;&#x2F; But we want to add that padding back inside the scroller. We add a div around the content
+    &#x2F;&#x2F; inside any pull-down&#x2F;pull-up to replace the padding removed from the wrapper.
+    addScrollerPadding: true,
+
+    &#x2F;&#x2F; On some platforms (iOS, for example) we need to scroll to top after orientation change,
+    &#x2F;&#x2F; because the address bar pushed the window down. jQuery Mobile handles this for page links,
+    &#x2F;&#x2F; but doesn&#x27;t for orientationchange.
+    &#x2F;&#x2F; If you have multiple scrollers, only enable this for one of them
+    scrollTopOnResize: true,
+
+    scrollTopOnOrientatationChange: true,
+
+    &#x2F;&#x2F; iScroll scrolls the first child of the wrapper. I don&#x27;t see a use case for having more
+    &#x2F;&#x2F; than one child. What kind of mess is going to be shown in that case? So, by default, we
+    &#x2F;&#x2F; just wrap ALL of the children of the wrapper with a new &lt;div&gt; that will be the scroller.
+    &#x2F;&#x2F; This way you don&#x27;t need to worry about wrapping all the elements to be scrolled if there
+    &#x2F;&#x2F; is more than one. If there is only one child, we create this &lt;div&gt; unnecessarily, but -
+    &#x2F;&#x2F; big deal. If, for some reason, you want to create the markup for the scroller yourself,
+    &#x2F;&#x2F; set this to false.
+    createScroller: true,
+
+    &#x2F;&#x2F; True to defer refresh() on non-active pages until pagebeforeshow. This avoids
+    &#x2F;&#x2F; unnecessary refresh in case of resize&#x2F;orientation change when pages are cached,
+    &#x2F;&#x2F; as well as unnecessary refresh when pages are updated when they are not the active
+    &#x2F;&#x2F; page.
+    deferNonActiveRefresh: true,
+
+    &#x2F;&#x2F; Same deal, for re-sizing the wrapper
+    deferNonActiveResize: true,
+
+    &#x2F;&#x2F; True to prevent hover in scroller touch devices.  If this is false, you will get
+    &#x2F;&#x2F;  &quot;piano keyboard&quot; effect in JQM &lt;1.1 when scrolling due to hover, which is both
+    &#x2F;&#x2F; time-consuming and distracting. A negative is that with the current implementation, you will
+    &#x2F;&#x2F; never get a &quot;hover&quot; visual effect within a scroller on touch devices, even when not scrolling.
+    &#x2F;&#x2F; But you still will on desktop browser with mouse, and you will still get &quot;down&quot; effect
+    &#x2F;&#x2F; when a link is selected. This really is a jQuery Mobile problem with listview, and is
+    &#x2F;&#x2F; fixed in JQM 1.1.
+    preventTouchHover: JQMIsV1_0 &amp;&amp; HasTouch,   &#x2F;&#x2F; Enable if touch device and JQM version is &lt; 1.1
+
+    &#x2F;&#x2F; This is an experimental feature under development and DOES NOT WORK completely!
+    &#x2F;&#x2F; For one, it breaks mousewheel with jQuery Mobile 1.1 (because jQuery Mobile 1.1 breaks
+    &#x2F;&#x2F; mousewheel...)
+    bindIscrollUsingJqueryEvents: false,
+
+    &#x2F;&#x2F; If fastDestroy is true, don&#x27;t tear down the widget on destroy. The assumption is destroy
+    &#x2F;&#x2F; will only be called when the page is removed, so there is no need. Is anyone really
+    &#x2F;&#x2F; going to un-enhance a scroller? If so, set this to false, but then you will have to
+    &#x2F;&#x2F; fix the unbind issue...
+    fastDestroy: false,
+
+    &#x2F;&#x2F; Prevent scrolling the page by grabbing areas outside of the scroller.
+    &#x2F;&#x2F; Normally, this should be true. Set this false if you are NOT using a fixed-height page,
+    &#x2F;&#x2F; but instead are using iScroll to scroll an area within a scollable page. If you have
+    &#x2F;&#x2F; multiple scrollers on a scrollable page, then set this false for all of them.
+    &#x2F;&#x2F; Note that we ALWAYS prevent scrolling the page by dragging inside the scroller.
+    preventPageScroll: true,
+
+    pullDownResetText   : &quot;Pull down to refresh...&quot;,
+    pullDownPulledText  : &quot;Release to refresh...&quot;,
+    pullDownLoadingText : &quot;Loading...&quot;,
+    pullUpResetText     : &quot;Pull up to refresh...&quot;,
+    pullUpPulledText    : &quot;Release to refresh...&quot;,
+    pullUpLoadingText   : &quot;Loading...&quot;,
+
+    pullPulledClass     : &quot;iscroll-pull-pulled&quot;,
+    pullLoadingClass    : &quot;iscroll-pull-loading&quot;,
+
+    &#x2F;&#x2F;-------------------------------------------------------------
+    &#x2F;&#x2F; For better or worse, widgets have two mechanisms for dealing
+    &#x2F;&#x2F; with events. The needs to be a set of options that correspond
+    &#x2F;&#x2F; to each event. If present, the option is a function. As
+    &#x2F;&#x2F; well, the widget prepends the widget event prefix (&quot;iscroll_&quot;)
+    &#x2F;&#x2F; to each event name and triggers a jQuery event by that name.
+    &#x2F;&#x2F; BOTH mechanisms can be used simultaneously, though not sure
+    &#x2F;&#x2F; why you&#x27;d want to. If you need to handle an event during
+    &#x2F;&#x2F; iScroll4 instantiation, (only one I know about that might be
+    &#x2F;&#x2F; called is refresh) then you have to use a function option.
+    &#x2F;&#x2F;-------------------------------------------------------------
+    onrefresh:           null,
+    onbeforescrollstart: null,
+    onscrollstart:       null,
+    onbeforescrollmove:  null,
+    onscrollmove:        null,
+    onbeforescrollend:   null,
+    onscrollend:         null,
+    ontouchend:          null,
+    ondestroy:           null,
+    onzoomstart:         null,
+    onzoom:              null,
+    onzoomend:           null,
+
+    onpulldownreset:     null,
+    onpulldownpulled:    null,
+    onpulldown:          null,
+    onpullupreset:       null,
+    onpulluppulled:      null,
+    onpullup:            null,
+
+    onbeforerefresh:     null,
+    onafterrefresh:      null
+    },
+
+    &#x2F;&#x2F;---------------------------------------------------------------------------------------
+    &#x2F;&#x2F; Array of keys of options that are widget-only options (not options in iscroll4 object)
+    &#x2F;&#x2F;---------------------------------------------------------------------------------------
+    _widgetOnlyOptions: [
+      &quot;debug&quot;,
+      &quot;traceIscrollEvents&quot;,
+      &quot;tracedIscrollEvents&quot;,
+      &quot;traceIscrollCallbacks&quot;,
+      &quot;tracedIscrollCallbacks&quot;,
+      &quot;traceWidgetEvents&quot;,
+      &quot;tracedWidgetEvents&quot;,
+      &quot;traceWidgetCallbacks&quot;,
+      &quot;tracedWidgetCallbacks&quot;,
+      &quot;traceResizeWrapper&quot;,
+      &quot;traceRefresh&quot;,
+      &quot;traceCreateDestroy&quot;,
+      &quot;bottomOffset&quot;,
+      &quot;emulateBottomOffset&quot;,
+      &quot;pageClass&quot;,
+      &quot;wrapperClass&quot;,
+      &quot;scrollerClass&quot;,
+      &quot;pullDownClass&quot;,
+      &quot;pullUpClass&quot;,
+      &quot;scrollerContentClass&quot;,
+      &quot;pullLabelClass&quot;,
+      &quot;pullUpSpacerClass&quot;,
+      &quot;fixedHeightSelector&quot;,
+      &quot;resizeWrapper&quot;,
+      &quot;resizeEvents&quot;,
+      &quot;refreshOnPageBeforeShow&quot;,
+      &quot;fixInput&quot;,
+      &quot;wrapperAdd&quot;,
+      &quot;refreshDelay&quot;,
+      &quot;scrollShortContent&quot;,
+      &quot;removeWrapperPadding&quot;,
+      &quot;addScrollerPadding&quot;,
+      &quot;createScroller&quot;,
+      &quot;deferNonActiveRefresh&quot;,
+      &quot;preventTouchHover&quot;,
+      &quot;deferNonActiveResize&quot;,
+      &quot;bindIscrollUsingJqueryEvents&quot;,
+      &quot;scrollTopOnResize&quot;,
+      &quot;scrollTopOnOrientationChange&quot;,
+      &quot;pullDownResetText&quot;,
+      &quot;pullDownPulledText&quot;,
+      &quot;pullDownLoadingText&quot;,
+      &quot;pullUpResetText&quot;,
+      &quot;pullUpPulledText&quot;,
+      &quot;pullUpLoadingText&quot;,
+      &quot;pullPulledClass&quot;,
+      &quot;pullLoadingClass&quot;,
+      &quot;onpulldownreset&quot;,
+      &quot;onpulldownpulled&quot;,
+      &quot;onpulldown&quot;,
+      &quot;onpullupreset&quot;,
+      &quot;onpulluppulled&quot;,
+      &quot;onpullup&quot;,
+      &quot;onbeforerefresh&quot;,
+      &quot;onafterrefresh&quot;,
+      &quot;fastDestroy&quot;
+      ],
+
+    &#x2F;&#x2F;-----------------------------------------------------------------------
+    &#x2F;&#x2F; Map of widget event names to corresponding iscroll4 object event names
+    &#x2F;&#x2F;-----------------------------------------------------------------------
+    _event_map: {
+      onrefresh:           &quot;onRefresh&quot;,
+      onbeforescrollstart: &quot;onBeforeScrollStart&quot;,
+      onscrollstart:       &quot;onScrollStart&quot;,
+      onbeforescrollmove:  &quot;onBeforeScrollMove&quot;,
+      onscrollmove:        &#x27;onScrollMove&#x27;,
+      onbeforescrollend:   &#x27;onBeforeScrollEnd&#x27;,
+      onscrollend:         &quot;onScrollEnd&quot;,
+      ontouchend:          &quot;onTouchEnd&quot;,
+      ondestroy:           &quot;onDetroy&quot;,
+      onzoomstart:         &quot;onZoomStart&quot;,
+      onzoom:              &quot;onZoom&quot;,
+      onzoomend:           &quot;onZoomEnd&quot;
+      },
+
+    &#x2F;&#x2F;------------------------------------------------------------------------------
+    &#x2F;&#x2F; Functions that adapt iscroll callbacks to Widget Factory conventions.
+    &#x2F;&#x2F; These are copied to the iscroll object&#x27;s options object on instantiation.
+    &#x2F;&#x2F; They  call the private _trigger method provided by the widget factory
+    &#x2F;&#x2F; base object. Normally, iscroll4 callbacks can be null or omitted. But since
+    &#x2F;&#x2F; we can&#x27;t know in advance whether the corresponding widget events might be bound
+    &#x2F;&#x2F; or delegated in the future, we have set a callback for each that calls _trigger.
+    &#x2F;&#x2F; This will call the corresponding widget callback as well as trigger the
+    &#x2F;&#x2F; corresponding widget event if bound.
+    &#x2F;&#x2F;
+    &#x2F;&#x2F; Event callbacks are passed two values:
+    &#x2F;&#x2F;
+    &#x2F;&#x2F;  e   The underlying DOM event (if any) associated with this event
+    &#x2F;&#x2F;  d   Data map
+    &#x2F;&#x2F;        iscrollview : The iscrollview object
+    &#x2F;&#x2F;------------------------------------------------------------------------------
+
+    _proxy_event_funcs: {
+
+      onRefresh: function(e) {
+        this._doCallback(&quot;onRefresh&quot;, e, function(e) {
+          this._emulateBottomOffset();
+          this.iscrollview._pullOnRefresh.call(this.iscrollview,e);
+          });
+        },
+
+      onBeforeScrollStart: function(e) {
+        this._doCallback(&quot;onBeforeScrollStart&quot;, e, function(e) {
+          this._fixInput(e);
+          });
+        },
+
+      onScrollStart:       function(e) { this._doCallback(&quot;onScrollStart&quot;,      e); },
+
+      onBeforeScrollMove:  function(e) {
+        this._doCallback(&quot;onBeforeScrollMove&quot;, e);
+        e.preventDefault();    &#x2F;&#x2F; Don&#x27;t scroll the page for touchmove inside scroller
+        },
+
+      onScrollMove: function(e) {
+        this._doCallback(&quot;onScrollMove&quot;, e, function(e) {
+          this.iscrollview._pullOnScrollMove.call(this.iscrollview, e);
+          });
+        },
+
+      onBeforeScrollEnd:   function(e) { this._doCallback(&quot;onBeforeScrollEnd&quot;, e); },
+
+      onScrollEnd: function(e) {
+        this._doCallback(&quot;onScrollEnd&quot;, e, function(e){
+          this.iscrollview._pullOnScrollEnd.call(this.iscrollview, e);
+          });
+        },
+
+      onTouchEnd:          function(e) { this._doCallback(&quot;onTouchEnd&quot;,  e); },
+      onDestroy:           function(e) { this._doCallback(&quot;onDestroy&quot;,   e); },
+      onZoomStart:         function(e) { this._doCallback(&quot;onZoomStart&quot;, e); },
+      onZoom:              function(e) { this._doCallback(&quot;onZoom&quot;,      e); },
+      onZoomEnd:           function(e) { this._doCallback(&quot;onZoomEnd&quot;,   e); }
+      },
+
+  &#x2F;&#x2F; Merge options from the iscroll object into the widget options
+  &#x2F;&#x2F; So, this will backfill iscroll4 defaults that we don&#x27;t set in
+  &#x2F;&#x2F; the widget, giving a full set of iscroll options, and leaving
+  &#x2F;&#x2F; widget-only options untouched.
+  _merge_from_iscroll_options: function() {
+    var options = $.extend(true, {}, this.iscroll.options);
+    &#x2F;&#x2F; Delete event options from the temp options
+    $.each(this._proxy_event_funcs, function(k,v) {delete options[k];});
+    if (this.options.emulateBottomOffset) { delete options.bottomOffset; }
+    $.extend(this.options, options);   &#x2F;&#x2F; Merge result into widget options
+    },
+
+  &#x2F;&#x2F; Create a set of iscroll4 object options from the widget options.
+  &#x2F;&#x2F; We have to omit any widget-specific options that are
+  &#x2F;&#x2F; not also iscroll4 options. Also, copy the proxy event functions to the
+  &#x2F;&#x2F; iscroll4 options.
+  _create_iscroll_options: function() {
+    var options = $.extend(true, {}, this.options);  &#x2F;&#x2F; temporary copy of widget options
+    &#x2F;&#x2F; Remove options that are widget-only options
+    $.each(this._widgetOnlyOptions, function(i,v) {delete options[v];});
+    &#x2F;&#x2F; Remove widget event options
+    $.each(this._event_map, function(k,v) {delete options[k];});
+    if (this.options.emulateBottomOffset) { delete options.bottomOffset; }
+    &#x2F;&#x2F; Add proxy event functions
+    return $.extend(options, this._proxy_event_funcs);
+    },
+
+  &#x2F;&#x2F; Formats number with fixed digits
+  _pad: function(num, digits, padChar) {
+    var str = num.toString(),
+        _padChar = padChar || &quot;0&quot;;
+    while (str.length &lt; digits) { str = _padChar + str; }
+    return str;
+  },
+
+  &#x2F;&#x2F; Format time for logging
+  _toTime: function(date) {
+    return this._pad(date.getHours(), 2) + &quot;:&quot; +
+           this._pad(date.getMinutes(), 2) + &quot;:&quot; +
+           this._pad(date.getSeconds(), 2) + &quot;.&quot; +
+           this._pad(date.getMilliseconds(), 3);
+  },
+
+  &#x2F;&#x2F; Log a message to console
+  &#x2F;&#x2F; text - message to log
+  &#x2F;&#x2F; now - optional timestamp, if missing generates new timestamp
+  &#x2F;&#x2F; Returns timestamp
+  _log: function(text, now) {
+    var _now, id, idStr;
+    if (!this.options.debug) { return null; }
+    _now = now || new Date();
+    id = this.$wrapper.attr(&quot;id&quot;);
+    idStr = id ? &quot;#&quot; + id : &quot;&quot;;
+    console.log(this._toTime(_now) + &quot; &quot; +
+                $.mobile.path.parseUrl(this.$page.jqmData(&quot;url&quot;)).filename + idStr + &quot; &quot; +
+                text );
+    return _now;
+  },
+
+  &#x2F;&#x2F; Log elapsed time from then to now
+  _logInterval: function(text, then) {
+    var now;
+    if (!this.options.debug) { return null; }
+    now = new Date();
+    return this._log(text + &quot; &quot; + (now - then) + &quot;mS from &quot; + this._toTime(then), now );
+    },
+
+  &#x2F;&#x2F; Log an event
+  &#x2F;&#x2F; Like _logInterval, but additional optional parameter e
+  &#x2F;&#x2F; If e is present, additionally show interval from original event to now
+  _logEvent: function(text, e, then) {
+    var now,
+        eventTime,
+        haveEvent = e &amp;&amp; e instanceof Object,
+        type = haveEvent ? e.type : e,
+        _text = type + &quot; &quot; + text;
+
+    if (!this.options.debug) { return null; }
+
+    now = new Date();
+
+    if (then) {
+      _text += &quot; end &quot; + (+(now-then)) + &quot;mS from &quot; + this._toTime(then);
+      }
+    else if (haveEvent) {
+      _text += &quot; begin&quot;;
+    }
+    if (haveEvent) {
+      eventTime = new Date(e.timeStamp);
+      _text +=  &quot; (&quot; +  (now - eventTime) + &quot;mS from &quot; +e.type + &quot; @ &quot; + this._toTime(eventTime) + &quot;)&quot;;
+      }
+
+    return this._log(_text, now);
+  },
+
+  &#x2F;&#x2F; Log a callback issued by iScroll
+  _logCallback: function(callbackName, e, then) {
+    if (!this.options.debug ||
+        !this.options.traceIscrollCallbacks ||
+       (this.options.tracedIscrollCallbacks.length !== 0 &amp;&amp;
+        $.inArray(callbackName, this.options.tracedIscrollCallbacks) === -1) ) {
+      return null;
+      }
+    if (e)         { return this._logEvent(callbackName, e, then); }
+    if (then)      { return this._logInterval(callbackName + &quot; end&quot;, then); }
+    return this._log(callbackName + &quot; begin&quot;);
+  },
+
+  &#x2F;&#x2F; Log an event handled by Iscroll
+  &#x2F;&#x2F; e can be Event or event name
+  _logIscrollEvent: function(text, e, then) {
+    var haveEvent = e instanceof Event,
+        type = haveEvent ? e.type : e;
+    if (!this.options.debug ||
+        !this.options.traceIscrollEvents ||
+        (this.options.tracedIscrollEvents.length !== 0 &amp;&amp;
+         $.inArray(type, this.options.tracedIscrollEvents) === -1)) {
+      return null;
+      }
+    return this._logEvent(text, e, then);
+  },
+
+  &#x2F;&#x2F; Log an event handled by the widget
+  _logWidgetEvent: function(text, e, then) {
+    var haveEvent = e instanceof Object,
+        type = haveEvent ? e.type : e;
+    if (!this.options.debug ||
+        !this.options.traceWidgetEvents ||
+        (this.options.tracedWidgetEvents.length !== 0 &amp;&amp;
+         $.inArray(type, this.options.tracedWidgetEvents) === -1)) {
+      return null;
+      }
+    return this._logEvent(text, e, then);
+  },
+
+  &#x2F;&#x2F; Log a callback issued by the widtet
+  _logWidgetCallback: function(callbackName, e, then) {
+    if (!this.options.debug ||
+        !this.options.traceWidgetCallbacks ||
+       (this.options.tracedWidgetCallbacks.length !== 0 &amp;&amp;
+        $.inArray(callbackName, this.options.tracedWidgetCallbacks) === -1) ) {
+      return null;
+      }
+    if (e)         { return this._logEvent(callbackName, e, then); }
+    if (then)      { return this._logInterval(callbackName + &quot; end&quot;, then); }
+    return this._log(callbackName + &quot; begin&quot;);
+  },
+
+  &#x2F;&#x2F; Log elapsed time from then to now and later to now
+  _logInterval2: function(text, then, later) {
+    var now;
+    if (!this.options.debug) { return; }
+    now = new Date();
+    this._log(text + &quot; &quot; +
+              (now - later) + &quot;mS from &quot; + this._toTime(later) +
+              &quot; (&quot; + (now - then) + &quot;mS from &quot; + this._toTime(then) + &quot;)&quot; );
+    },
+
+  _startTiming: function() {
+    if (!this.options.debug) { return null; }
+    return new Date();
+    },
+
+  &#x2F;&#x2F; Returns the event namespace for the page containing this widget
+  _pageEventNamespace: function() {
+    return &quot;.iscroll_&quot; + this.pageID;
+  },
+
+   &#x2F;&#x2F; Returns the event namespace for this widget
+  _instanceEventNamespace: function() {
+    return this._pageEventNamespace() + &quot;_&quot; + this.instanceID;
+  },
+
+  &#x2F;&#x2F; Takes a space-separated list of event types, and appends the given namespace to each
+  _addEventsNamespace: function(types_in, namespace) {
+    var types = types_in.split(&quot; &quot;);
+    $.each(types, function(k,v) {types[k] += namespace;});
+    return types.join(&quot; &quot;);
+  },
+
+  &#x2F;&#x2F; All bind&#x2F;unbind done by the widget goes through here, to permit logging
+  &#x2F;&#x2F; Note: this used to be called _bind, but starting with JQM 1.2, this is a naming conflict with
+  &#x2F;&#x2F; the Widget Factory code in JQM
+  _isvBind: function(obj, types_in, func, objName) {
+    var types = this._addEventsNamespace(types_in, this._instanceEventNamespace());
+    this._logWidgetEvent(&quot;bind &quot; + objName, types);
+    obj.bind(types, $.proxy(func, this));
+  },
+
+  _bindPage: function(types_in, func) {
+    var types = this._addEventsNamespace(types_in, this._pageEventNamespace());
+    this._logWidgetEvent(&quot;bind $page&quot;, types);
+    this.$page.bind(types, $.proxy(func, this));
+  },
+
+  _isvUnbind: function(obj, types_in, objName) {
+    var types = this._addEventsNamespace(types_in, this._instanceEventNamespace());
+    this._logWidgetEvent(&quot;unbind &quot; + objName, types);
+    obj.unbind(types);
+  },
+
+  _unbindPage: function(types_in) {
+    var types = this._addEventsNamespace(types_in, this._instanceEventNamespace());
+    this._logWidgetEvent(&quot;unbind  $page&quot;, types);
+    this.$page.unbind(types);
+  },
+
+  &#x2F;&#x2F; Currently unused - just in case we need it
+  _delegate: function(obj, selector, type, func, objName) {
+    this._logWidgetEvent(&quot;delegate &quot; + objName + &quot; &quot; + selector, type);
+    obj.delegate(selector, type, $.proxy(func, this));
+  },
+
+  _triggerWidget: function(type, e) {
+    var then = this._logWidgetCallback(type);
+    this._trigger(type, e, {&quot;iscrollview&quot;:this});
+    this._logWidgetCallback(type, e, then);
+  },
+
+  &#x2F;&#x2F;-------------------------------------------------------------------
+  &#x2F;&#x2F; Returns status of dirty flag, indicating that refresh() was called
+  &#x2F;&#x2F; while the page was not active, and refresh will be deferred until
+  &#x2F;&#x2F; pagebeforeshow.
+  &#x2F;&#x2F;-------------------------------------------------------------------
+  isDirty: function() {
+    return this._dirty;
+    },
+
+  &#x2F;&#x2F;-----------------------------------------------------------------------------
+  &#x2F;&#x2F; Restore an element&#x27;s styles to original
+
+  &#x2F;&#x2F; If the style was never modified by the widget, the value passed in
+  &#x2F;&#x2F; originalStyle will be undefined.
+  &#x2F;&#x2F;
+  &#x2F;&#x2F;If there originally was no style attribute, but styles were added by the
+  &#x2F;&#x2F; widget, the value passed in originalStyle will be null.
+  &#x2F;&#x2F;
+  &#x2F;&#x2F; If there originally was a style attribute, but the widget modified it
+  &#x2F;&#x2F; (actually, set some CSS, which changes the style, the value is a string in
+  &#x2F;&#x2F; originalStyle.
+  &#x2F;&#x2F;-----------------------------------------------------------------------------
+  _restoreStyle: function($ele, originalStyle) {
+    if (originalStyle === undefined) { return; }
+    if (originalStyle === null)      { $ele.removeAttr(&quot;style&quot;); }
+    else                             { $ele.attr(&quot;style&quot;, originalStyle); }
+    },
+
+  &#x2F;&#x2F;------------------------------------------------------------------------------
+  &#x2F;&#x2F; Functions that we bind to. They are declared as named members rather than as
+  &#x2F;&#x2F; inline closures so we can properly unbind them.
+  &#x2F;&#x2F;------------------------------------------------------------------------------
+  _pageBeforeShowFunc: function(e) {
+   var then = this._logWidgetEvent(&quot;_pageBeforeShowFunc&quot;, e);
+   if (this._dirty) {
+     this.resizeWrapper();
+     this.refresh(null, this._dirtyCallbackBefore, this._dirtyCallbackAfter, true);
+     this._dirty = false;
+     this._dirtyCallbackBefore = null;
+     this._dirtyCallbackAfter = null;
+     }
+   else if (this.options.refreshOnPageBeforeShow || this._sizeDirty) {
+      this.refresh(null,$.proxy(this._resizeWrapper, this),null,true);
+      }
+   this._sizeDirty = false;
+   this._logWidgetEvent(&quot;_pageBeforeShowFunc&quot;, e, then);
+   },
+
+  &#x2F;&#x2F; Called on resize events
+  &#x2F;&#x2F; TODO: Detect if size is unchanged, and if so just ignore?
+  _windowResizeFunc: function(e) {
+    var then = this._logWidgetEvent(&quot;_windowResizeFunc&quot;, e);
+    &#x2F;&#x2F; Defer if not active page
+    if (this.options.deferNonActiveResize &amp;&amp; !(this.$page.is($.mobile.activePage))) {
+      this._sizeDirty = true;
+      if (this.options.traceResizeWrapper) { this._log(&quot;resizeWrapper() (deferred)&quot;); }
+      }
+    else {
+      this.resizeWrapper();
+      this.refresh(null,null,null,true);
+      }
+    this._logWidgetEvent(&quot;_windowResizeFunc&quot;, e, then);
+    },
+
+  &#x2F;&#x2F; On some platforms (iOS, for example) you need to scroll back to top after orientation change,
+  &#x2F;&#x2F; because the address bar pushed the window down. jQuery Mobile handles this for page links,
+  &#x2F;&#x2F; but doesn&#x27;t for orientationchange
+  _orientationChangeFunc: function(e) {
+    var then = this._logWidgetEvent(&quot;_orientationChangeFunc&quot;, e);
+    if (this.options.scrollTopOnOrientationChange) {
+      $.mobile.silentScroll(0);
+      }
+    this._logWidgetEvent(&quot;_orientationChangeFunc&quot;, e, then);
+    },
+
+   &#x2F;&#x2F; Called when jQuery Mobile updates content such that a reflow is needed. This happens
+   &#x2F;&#x2F; on collapsible content, etc.
+    _updateLayoutFunc: function(e) {
+      this.refresh();
+  },
+
+  &#x2F;&#x2F; Get or set the count of instances on the page containing the widget
+  &#x2F;&#x2F; This increases or decreases depending on the number of iscrollview widgets currently
+  &#x2F;&#x2F; instantiated on the page.
+  _instanceCount: function(count_in) {
+    var key = &quot;iscroll-private&quot;,
+        count = 0,
+        data = this.$page.jqmData(key) || {};
+    if (count_in !== undefined) {
+      count = count_in;
+      data.instanceCount = count;
+      this.$page.jqmData(key, data);
+      }
+    else {
+      if (data.instanceCount !== undefined) {
+        count = data.instanceCount;
+        }
+      }
+    return count;
+  },
+
+  _nextInstanceID: function(id_in) {
+    var key = &quot;iscroll-private&quot;,
+        id = 1,
+        data = this.$page.jqmData(key) || {};
+    if (id_in !== undefined) {
+      id = id_in;
+      data.nextInstanceID = id;
+      this.$page.jqmData(key, data);
+      }
+    else {
+      if (data.nextInstanceID !== undefined) {
+        id = data.nextInstanceID;
+        }
+      }
+    return id;
+  },
+
+  _pageID: function(id_in) {
+    var key = &quot;iscroll-private&quot;,
+        id = 1,
+        data = this.$page.jqmData(key) || {};
+    if (id_in !== undefined) {
+      id = id_in;
+      data.pageID = id;
+      this.$page.jqmData(key, data);
+      }
+    else {
+      if (data.pageID !== undefined) {
+        id = data.pageID;
+        }
+      }
+    return id;
+  },
+
+  &#x2F;&#x2F;--------------------------------------------------------------------------
+  &#x2F;&#x2F; Adapt the page for this widget
+  &#x2F;&#x2F;--------------------------------------------------------------------------
+  _adaptPage: function() {
+    var _this = this;
+
+    &#x2F;&#x2F; Only adapt the page if this is the only iscrollview widget instantiated on the page
+    &#x2F;&#x2F; If the count &gt;1, then the page has already been adapted. When the count goes back
+    &#x2F;&#x2F; to 0, the changes will be un-done
+    if (this._instanceCount() === 1) {
+      this.$page.addClass(this.options.pageClass);
+      this.$page.find(this.options.fixedHeightSelector).each(function() {  &#x2F;&#x2F; Iterate over headers&#x2F;footers&#x2F;etc.
+        $(this).addClass(_this.options.fixedHeightClass);
+        });
+      if (HasTouch &amp;&amp; this.options.preventPageScroll) {
+        this._bindPage(&quot;touchmove&quot;, _pageTouchmoveFunc);
+        }
+      }
+    },
+
+  _undoAdaptPage: function() {
+    var _this = this;
+    if (this._instanceCount() === 1) {
+      this.$page.find(this.options.fixedHeightSelector).each(function() {  &#x2F;&#x2F; Iterate over headers&#x2F;footers&#x2F;etc.
+        $(this).removeClass(_this.options.fixedHeightClass);
+        });
+      this.$page.removeClass(this.options.pageClass);
+      }
+    },
+
+  &#x2F;&#x2F;--------------------------------------------------------
+  &#x2F;&#x2F; Calculate total bar heights.
+  &#x2F;&#x2F;--------------------------------------------------------
+  _calculateBarsHeight: function() {
+    var barsHeight = 0,
+        fixedHeightSelector = &quot;.&quot; + this.options.fixedHeightClass,
+        &#x2F;&#x2F; Persistent footers are sometimes inside the page, sometimes outside of all pages! (as
+        &#x2F;&#x2F; direct descendant of &lt;body&gt;). And sometimes both. During transitions, the page that
+        &#x2F;&#x2F; is transitioning in will have had it&#x27;s persistent footer moved outside of the page,
+        &#x2F;&#x2F; while all other pages will have their persistent footer internal to the page.
+        &#x2F;&#x2F;
+        &#x2F;&#x2F; To deal with this, we find iscroll-fixed elements in the page, as well as outside
+        &#x2F;&#x2F; of the page (as direct descendants of &lt;body&gt;). We avoid double-counting persistent
+        &#x2F;&#x2F; footers that have the same data-id. (Experimentally, then, we also permit the user
+        &#x2F;&#x2F; to place fixed-height elements outside of the page, but unsure if this is of any
+        &#x2F;&#x2F; practical use.)
+        $barsInPage = this.$page.find(fixedHeightSelector),
+        $barsOutsidePage = $(&quot;body&quot;).children(fixedHeightSelector);
+
+    $barsInPage.each(function() {  &#x2F;&#x2F; Iterate over headers&#x2F;footers&#x2F;etc.
+        barsHeight += $(this).outerHeight(true);
+        });
+
+    $barsOutsidePage.each(function() {
+      var id = $(this).jqmData(&quot;id&quot;);  &#x2F;&#x2F; Find data-id if present
+      &#x2F;&#x2F; Count bars outside of the page if they don&#x27;t have data-id (so not a persistent
+      &#x2F;&#x2F; footer, but something the developer put there and tagged with data-iscroll-fixed class),
+      &#x2F;&#x2F; or if a matching data-id is NOT found among the bars that are inside the page.
+      if (id === &quot;&quot; || !$barsInPage.is(&quot;:jqmData(id=&#x27;&quot; + id + &quot;&#x27;)&#x27;&quot;)) {
+        barsHeight += $(this).outerHeight(true);
+        }
+      });
+    return barsHeight;
+    },
+
+  &#x2F;&#x2F;-----------------------------------------------------------------------
+  &#x2F;&#x2F; Determine the box-sizing model of an element
+  &#x2F;&#x2F; While jQuery normalizes box-sizing models when retriving geometry,
+  &#x2F;&#x2F; it doesn&#x27;t consider it when SETTING geometry. So, this is useful when
+  &#x2F;&#x2F; setting geometry. (e.g. the height of the wrapper)
+  &#x2F;&#x2F;-----------------------------------------------------------------------
+  _getBoxSizing: function($elem) {
+    var  boxSizing,
+         prefix = &quot;&quot;;
+
+    if (IsFirefox)     { prefix = &quot;-moz-&quot;; }
+    else if (IsWebkit) { prefix = &quot;-webkit-&quot;; } &#x2F;&#x2F; note: can drop prefix for Chrome &gt;=10, Safari &gt;= 5.1 (534.12)
+    boxSizing = $elem.css(prefix + &quot;box-sizing&quot;);
+    if (!boxSizing &amp;&amp; prefix) { boxSizing = $elem.css(&quot;box-sizing&quot;); }  &#x2F;&#x2F; Not found, try again with standard CSS
+    if (!boxSizing) {     &#x2F;&#x2F; Still not found - no CSS property available to guide us.
+      &#x2F;&#x2F; See what JQuery thinks the global box model is
+      if ($.boxModel) { boxSizing = &quot;content-box&quot;; }
+      else            { boxSizing = &quot;border-box&quot;; }
+      }
+    return boxSizing;
+    },
+
+  &#x2F;&#x2F;-----------------------------------------------------------------
+  &#x2F;&#x2F; Get the height adjustment for setting the height of an element,
+  &#x2F;&#x2F; based on the content-box model
+  &#x2F;&#x2F;-----------------------------------------------------------------
+  _getHeightAdjustForBoxModel: function($elem) {
+    &#x2F;&#x2F; Take into account the box model. This defaults to either W3C or traditional
+    &#x2F;&#x2F; model for a given browser, but can be overridden with CSS
+    var adjust;
+    switch (this._getBoxSizing($elem)) {
+      case &quot;border-box&quot;:      &#x2F;&#x2F; AKA traditional, or IE5 (old browsers and IE quirks mode)
+        &#x2F;&#x2F; only subtract margin
+        adjust = $elem.outerHeight(true) - $elem.outerHeight();
+        break;
+
+      case &quot;padding-box&quot;:    &#x2F;&#x2F; Firefox-only
+        &#x2F;&#x2F; subtract margin and border
+        adjust = $elem.outerHeight() - $elem.height();
+        break;
+
+      case &quot;content-box&quot;:     &#x2F;&#x2F; AKA W3C  Ignore jshint warning
+      default:                &#x2F;&#x2F; Ignore jslint warning
+        &#x2F;&#x2F; We will subtract padding, border, margin
+        adjust = $elem.outerHeight(true) - $elem.height();
+        break;
+      }
+    return adjust;
+    },
+
+  &#x2F;&#x2F;--------------------------------------------------------
+  &#x2F;&#x2F; If there&#x27;s a pull-down element, we need to set the
+  &#x2F;&#x2F; topOffset to the height of that element. If user
+  &#x2F;&#x2F; specified a topOffset option, use that instead, though.
+  &#x2F;&#x2F;--------------------------------------------------------
+  _setTopOffsetForPullDown: function() {
+    if (this.$pullDown.length &amp;&amp; !this.options.topOffset) {
+      this.options.topOffset = this.$pullDown.outerHeight(true);
+      }
+    },
+
+  &#x2F;&#x2F;--------------------------------------------------------
+  &#x2F;&#x2F; If there&#x27;s a pull-up element, we need to set the
+  &#x2F;&#x2F; bottomOffset to the height of that element. If user
+  &#x2F;&#x2F; specified a bottomOffset option, use that instead, though.
+  &#x2F;&#x2F;--------------------------------------------------------
+  _setBottomOffsetForPullUp: function() {
+    if (this.$pullUp.length &amp;&amp; !this.options.bottomOffset) {
+      this.options.bottomOffset = this.$pullUp.outerHeight(true);
+      }
+    },
+
+   _removeWrapperPadding: function() {
+     var $wrapper = this.$wrapper;
+     if (this.options.removeWrapperPadding) {
+       &#x2F;&#x2F; Save padding so we can re-apply it to the iscroll-content div that we create
+       this._origWrapperPaddingLeft   = $wrapper.css(&quot;padding-left&quot;);
+       this._origWrapperPaddingRight  = $wrapper.css(&quot;padding-right&quot;);
+       this._origWrapperPaddingTop    = $wrapper.css(&quot;padding-top&quot;);
+       this._origWrapperPaddingBottom = $wrapper.css(&quot;padding-bottom&quot;);
+       this.$wrapper.css(&quot;padding&quot;, 0);
+       }
+   },
+
+  &#x2F;&#x2F;---------------------------------------------------------
+  &#x2F;&#x2F; Modify some wrapper CSS
+  &#x2F;&#x2F;---------------------------------------------------------
+  _modifyWrapperCSS: function() {
+    this._origWrapperStyle = this.$wrapper.attr(&quot;style&quot;) || null;
+    this._removeWrapperPadding();
+    },
+
+  _undoModifyWrapperCSS: function() {
+    this._restoreStyle(this.$wrapper, this._origWrapperStyle);
+    },
+
+  &#x2F;&#x2F;---------------------------------------------------------
+  &#x2F;&#x2F; Adds padding around scrolled content (not including
+  &#x2F;&#x2F; any pull-down or pull-up) using a div with padding
+  &#x2F;&#x2F; removed from wrapper.
+  &#x2F;&#x2F;---------------------------------------------------------
+  _addScrollerPadding: function () {
+  if (this.options.removeWrapperPadding &amp;&amp; this.options.addScrollerPadding) {
+    &#x2F;&#x2F; We do not store $scrollerContent in the object, because elements might be added&#x2F;deleted
+    &#x2F;&#x2F; after instantiation. When we undo, we need the CURRENT children in order to unwrap
+    var $scrollerContentWrapper,
+        $scrollerChildren = this.$scroller.children(),
+        $scrollerContent = $scrollerChildren.not(this.$pullDown).not(this.$pullUp).not(this.$pullUpSpacer);
+    $scrollerContent.wrapAll(&quot;&lt;div&#x2F;&gt;&quot;);
+
+    $scrollerContentWrapper = $scrollerContent.parent().addClass(this.options.scrollerContentClass);
+    $scrollerContentWrapper.css({
+      &quot;padding-left&quot;   : this._origWrapperPaddingLeft,
+      &quot;padding-right&quot;  : this._origWrapperPaddingRight,
+      &quot;padding-top&quot;    : this._origWrapperPaddingTop,
+      &quot;padding-bottom&quot; : this._origWrapperPaddingBottom
+      });
+    }
+  },
+
+  _undoAddScrollerPadding: function () {
+    if (this.options.removeWrapperPadding &amp;&amp; this.options.addScrollerPadding) {
+      $(&quot;.&quot; + this.options.scrollerContentClass, this.$scroller).children().unwrap();
+      }
+    },
+
+  &#x2F;&#x2F;---------------------------------------------------------
+  &#x2F;&#x2F; Add some convenient classes in case user wants to style
+  &#x2F;&#x2F; wrappers&#x2F;scrollers that use iscroll.
+  &#x2F;&#x2F;---------------------------------------------------------
+  _addWrapperClasses: function() {
+    this.$wrapper.addClass(this.options.wrapperClass);
+    this.$scroller.addClass(this.options.scrollerClass);
+    },
+
+  _undoAddWrapperClasses: function() {
+    this.$scroller.removeClass(this.options.scrollerClass);
+    this.$wrapper.removeClass(this.options.wrapperClass);
+    },
+
+  &#x2F;&#x2F;--------------------------------------------------------
+  &#x2F;&#x2F; Expands the scroller to fill the wrapper. This permits
+  &#x2F;&#x2F; dragging an empty scroller, or one that is shorter than
+  &#x2F;&#x2F; the wrapper. Otherwise, you could never do pull to
+  &#x2F;&#x2F; refresh if some content wasn&#x27;t initially present. As
+  &#x2F;&#x2F; well, this pushes any pull-up element down so that it
+  &#x2F;&#x2F; will not be visible until the user pulls up.
+  &#x2F;&#x2F;--------------------------------------------------------
+  _expandScrollerToFillWrapper: function() {
+    if (this.options.scrollShortContent || this.$pullDown.length || this.pullUp.length) {
+      if (this._firstScrollerExpand) {
+        this._origScrollerStyle = this.$scroller.attr(&quot;style&quot;) || null;
+        this._firstScrollerExpand = false;
+        }
+
+      this.$scroller.css(&quot;min-height&quot;,
+        this.$wrapper.height() +
+        (this.$pullDown.length ? this.$pullDown.outerHeight(true) : 0) +
+        (this.$pullUp.length ? this.$pullUp.outerHeight(true) : 0)
+        );
+      }
+    },
+
+  _undoExpandScrollerToFillWrapper: function() {
+    this._restoreStyle(this.$scroller, this._origScrollerStyle);
+    },
+
+  &#x2F;&#x2F;--------------------------------------------------------
+  &#x2F;&#x2F;Resize the wrapper for the scrolled region to fill the
+  &#x2F;&#x2F; viewport remaining after all fixed-height elements
+  &#x2F;&#x2F;--------------------------------------------------------
+  _resizeWrapper: function() {
+    var then = null,
+         viewportHeight,
+         barsHeight,
+         newWrapperHeight;
+
+    if (!this.options.resizeWrapper) {
+      return;
+      }
+    if (this.options.traceResizeWrapper) {
+      then = this._log(&quot;resizeWrapper() start&quot;);
+      }
+    this.$wrapper.trigger(&quot;updatelayout&quot;);  &#x2F;&#x2F; Let jQuery mobile update fixed header&#x2F;footer, collapsables, etc.
+    viewportHeight = this.$window.height();
+    barsHeight = this._calculateBarsHeight();
+
+    newWrapperHeight =
+      viewportHeight -
+      barsHeight -                             &#x2F;&#x2F; Height of fixed bars or &quot;other stuff&quot; outside of the wrapper
+      this._wrapperHeightAdjustForBoxModel +   &#x2F;&#x2F; Make adjustment based on content-box model
+      &#x2F;&#x2F; Note: the following will fail for Safari desktop with Develop&#x2F;User Agent&#x2F;iPhone
+      &#x2F;&#x2F; Fake fullscreen or webview by using custom user agent and removing &quot;Safari&quot; from string
+      (IsMobileSafari &amp;&amp; !IsIPad ? 60 : 0) +  &#x2F;&#x2F; Add 60px for space recovered from Mobile Safari address bar
+      this.options.wrapperAdd;                &#x2F;&#x2F; User-supplied fudge-factor if needed
+
+    this.$wrapper.css(&quot;height&quot;, newWrapperHeight);
+    this._expandScrollerToFillWrapper();
+
+    if (this.options.traceResizeWrapper) {
+      this._logInterval(&quot;resizeWrapper() end&quot; + (this._sizeDirty ? &quot; (dirty)&quot; : &quot;&quot;), then);
+      }
+    },
+
+    resizeWrapper: function () {
+      var hidden = this._setPageVisible();
+      this._resizeWrapper();
+      this._restorePageVisibility(hidden);
+    },
+
+  _undoResizeWrapper: function() {
+    },
+
+  &#x2F;&#x2F;---------------------------------------------------------
+  &#x2F;&#x2F; Make various modifications to the wrapper
+  &#x2F;&#x2F;---------------------------------------------------------
+  _modifyWrapper: function() {
+    this._addWrapperClasses();
+    this._modifyWrapperCSS();
+
+    this._wrapperHeightAdjustForBoxModel = this._getHeightAdjustForBoxModel(this.$wrapper);
+    },
+
+  _undoModifyWrapper: function() {
+    this._undoResizeWrapper();
+    this._undoModifyWrapperCSS();
+    this._undoAddWrapperClasses();
+    },
+
+  &#x2F;&#x2F;--------------------------------------------------------
+  &#x2F;&#x2F; Modify the pull-down (if any) with reset text
+  &#x2F;&#x2F; Also, read data-iscroll-release and data-iscroll-loading
+  &#x2F;&#x2F; values (if present ) into the corresponding options.
+  &#x2F;&#x2F;--------------------------------------------------------
+  _modifyPullDown: function () {
+    var $pullDownLabel, pulledText, loadingText;
+    if (this.$pullDown.length === 0) { return; }
+    $pullDownLabel = $(&quot;.&quot; + this.options.pullLabelClass, this.$pullDown);
+    if ($pullDownLabel.length) {
+      this._origPullDownLabelText = $pullDownLabel.text();
+      if (this._origPullDownLabelText) { this.options.pullDownResetText = this._origPullDownLabelText; }
+      else { $pullDownLabel.text(this.options.pullDownResetText); }
+      pulledText = $pullDownLabel.jqmData(&quot;iscroll-pulled-text&quot;);
+      if (pulledText) { this.options.pullDownPulledText = pulledText; }
+      loadingText = $pullDownLabel.jqmData(&quot;iscroll-loading-text&quot;);
+      if (loadingText) { this.options.pullDownLoadingText = loadingText; }
+      }
+    },
+
+  _undoModifyPullDown: function () {
+    if (this.$pullDown.length === 0) { return; }
+    var $pullDownLabel = $(&quot;.&quot; + this.options.pullLabelClass, this.$pullDown);
+    if ($pullDownLabel.length === 0) { return; }
+    $pullDownLabel.text(this._origPullDownLabelText);
+  },
+
+  &#x2F;&#x2F;--------------------------------------------------------
+  &#x2F;&#x2F; Modify the pullup element (if any) to prevent visual
+  &#x2F;&#x2F; glitching. Position at the bottom of the scroller.
+  &#x2F;&#x2F;
+  &#x2F;&#x2F; Modify the pull-up (if any) with reset text
+  &#x2F;&#x2F; Also, read data-iscroll-release and data-iscroll-loading
+  &#x2F;&#x2F; values (if present ) into the corresponding options.
+  &#x2F;&#x2F;--------------------------------------------------------
+  _modifyPullUp: function () {
+    var $pullUpLabel, pulledText, loadingText;
+
+    if (this.$pullUp.length === 0) { return; }
+
+    &#x2F;&#x2F; Since we are positioning the pullUp element absolutely, it is pulled out of the
+    &#x2F;&#x2F; document flow. We need to add a dummy &lt;div&gt; with the same height as the pullUp.
+    $(&quot;&lt;div&gt;&lt;&#x2F;div&gt;&quot;).insertBefore(this.$pullUp).css(
+     &quot;height&quot;, this.$pullUp.outerHeight(true) );
+    this.$pullUpSpacer = this.$pullUp.prev();
+    this.$pullUpSpacer.addClass(this.options.pullUpSpacerClass);
+
+    $pullUpLabel = $(&quot;.&quot; + this.options.pullLabelClass, this.$pullUp);
+    if ($pullUpLabel.length) {
+      this._origPullUpLabelText = $pullUpLabel.text();
+      if (this._origPullUpLabelText) { this.options.pullUpResetText = this._origPullUpLabelText; }
+      else { $pullUpLabel.text(this.options.pullUpResetText); }
+      pulledText = $pullUpLabel.jqmData(&quot;iscroll-pulled-text&quot;);
+      if (pulledText) { this.options.pullUpPulledText = pulledText; }
+      loadingText = $pullUpLabel.jqmData(&quot;iscroll-loading-text&quot;);
+      if (loadingText) { this.options.pullUpLoadingText = loadingText; }
+      }
+
+    },
+
+  _undoModifyPullUp: function () {
+    if (this.$pullUp.length === 0) { return; }
+    this.$pullUp.prev().remove();  &#x2F;&#x2F; Remove the dummy div
+    if (this._origPullUpLabelText) {
+      $(&quot;.&quot; + this.options.pullLabelClass, this.$pullUp).text(this._origPullUpLabelText);
+      }
+  },
+
+  _correctPushedDownPage: function() {
+    &#x2F;&#x2F; Scroll to top in case address bar pushed the page down
+    if (this.options.resizeWrapper &amp;&amp; this.options.scrollTopOnResize) {
+      $.mobile.silentScroll(0);
+      }
+  },
+
+  &#x2F;&#x2F;----------------------------------------------------------------------
+  &#x2F;&#x2F; Refresh the iscroll object. Insure that refresh is called with proper
+  &#x2F;&#x2F; timing. Call optional before and after refresh callbacks and trigger
+  &#x2F;&#x2F; before and after refresh events.
+  &#x2F;&#x2F;-----------------------------------------------------------------------
+  refresh: function(delay, callbackBefore, callbackAfter, noDefer) {
+
+    var _this, _delay, _callbackBefore, _callbackAfter, _noDefer, then;
+
+    &#x2F;&#x2F; If non-active-page refresh is deferred, make a note of it.
+    &#x2F;&#x2F; Note that each call to refresh() overwrites the callback and context variables.
+    &#x2F;&#x2F; Our expectation is that callback and context will be identical for all such refresh
+    &#x2F;&#x2F; calls. In any case, only the last callback and context will be used. This allows
+    &#x2F;&#x2F; refresh of jQuery Mobile widgets within the scroller to be deferred, as well.
+    if (!noDefer &amp;&amp; this.options.deferNonActiveRefresh &amp;&amp; !(this.$page.is($.mobile.activePage))) {
+      this._dirty = true;
+      this._dirtyCallbackBefore = callbackBefore;
+      this._dirtyCallbackAfter = callbackAfter;
+      if (this.options.traceRefresh) {
+        this._log(&quot;refresh() (deferred)&quot;);
+      }
+      return;
+    }
+
+  &#x2F;&#x2F; Let the browser complete rendering, then refresh the scroller
+  &#x2F;&#x2F;
+  &#x2F;&#x2F; Optional delay parameter for timeout before actually calling iscroll.refresh().
+  &#x2F;&#x2F; If missing (undefined) or null, use options.refreshDelay.
+  &#x2F;&#x2F;
+  &#x2F;&#x2F; Optional callback parameters are called if present before and after iScroll internal
+  &#x2F;&#x2F; refresh() is called.  While the caller might bind to the before or after refresh events,
+  &#x2F;&#x2F; this can be more convenient and avoids any ambiguity over WHICH call to refresh is involved.
+    _this = this;
+    _delay = delay;
+    _callbackBefore = callbackBefore;
+    _callbackAfter = callbackAfter;
+    _noDefer = noDefer;
+    then = this._startTiming();
+    if ((_delay === undefined) || (_delay === null) ) { _delay = this.options.refreshDelay; }
+
+    setTimeout(function() {
+      var later = null,
+          hidden;
+
+      if (_this.options.traceRefresh) {
+       later =  _this._logInterval(&quot;refresh() start&quot;, then);
+       }
+
+       hidden = _this._setPageVisible();
+        if (_callbackBefore) { _callbackBefore(); }
+      _this._triggerWidget(&quot;onbeforerefresh&quot;);
+      _this.iscroll.refresh();
+      _this._triggerWidget(&quot;onafterrefresh&quot;);
+        if (_callbackAfter) { _callbackAfter(); }
+      _this._restorePageVisibility(hidden);
+
+      &#x2F;&#x2F; Scroll to top in case address bar pushed the page down
+      if (!hidden) { _this._correctPushedDownPage(); }
+
+      if (_this.options.traceRefresh) {
+        _this._logInterval2(&quot;refresh() end&quot; + (_noDefer ? &quot; (dirty)&quot; : &quot;&quot;), then, later);
+        }
+      }, _delay);
+
+    if (this.options.traceRefresh) {
+      this._log(&quot;refresh() will occur after &gt;= &quot; + _delay + &quot;mS&quot;);
+      }
+
+    },
+
+
+   &#x2F;&#x2F;---------------------------
+   &#x2F;&#x2F; Create the iScroll object
+   &#x2F;&#x2F;---------------------------
+  _create_iscroll_object: function() {
+    &#x2F;*jslint newcap:true *&#x2F;
+    this.iscroll = new IScroll(this, this.$wrapper.get(0), this._create_iscroll_options());
+    &#x2F;* jslint newcap:false *&#x2F;
+    },
+
+  &#x2F;&#x2F;-----------------------------------------
+  &#x2F;&#x2F; Create scroller
+  &#x2F;&#x2F;-----------------------------------------
+  _createScroller: function() {
+    if (this.options.createScroller) {
+      if (this.$wrapper.children().length) {
+        &#x2F;&#x2F; Wrap the content with a div
+        this.$wrapper.children().wrapAll(&quot;&lt;div&#x2F;&gt;&quot;);
+        }
+      else {
+        &#x2F;&#x2F; Create an empty div for content and wrap with a div
+        this.$wrapper.append(&quot;&lt;div&gt;&lt;div&gt;&lt;&#x2F;div&gt;&lt;&#x2F;div&gt;&quot;);
+        }
+      }
+    },
+
+  _undoCreateScroller: function() {
+    if (this.options.createScroller) {
+      this.$scroller.children().unwrap();
+    }
+  },
+
+  &#x2F;&#x2F; Temporarily change page CSS to make it &quot;visible&quot; so that dimensions can be read.
+  &#x2F;&#x2F; This can be used in any event callback, and so can be used in _create(), since it&#x27;s called
+  &#x2F;&#x2F; from pageinit event. Because event processing is synchronous, the browser won&#x27;t render the
+  &#x2F;&#x2F; change, as long as the page style is set back before the callback returns. So, a hidden
+  &#x2F;&#x2F; page will remain hidden as long as _restorePageVisibility() is called before return.
+  &#x2F;&#x2F; This way, we can just use normal dimension functions and avoid using jquery.actual, which
+  &#x2F;&#x2F; slows things down significantly.
+  &#x2F;&#x2F;
+  &#x2F;&#x2F; jquery.actual goes up the tree from the element being measured and sets every element to
+  &#x2F;&#x2F; visible, which is unnecessary. (We only have to be concerned about the page element, which
+  &#x2F;&#x2F; jQuery Mobile sets to display:none for all but the currently-visible page.) It also does this
+  &#x2F;&#x2F; for every dimension read. This essentially does the same thing, but then allows us to &quot;batch&quot;
+  &#x2F;&#x2F; reading dimensions
+  _setPageVisible: function() {
+    var hidden = this.$page.is(&quot;:hidden&quot;);
+    if (hidden) { this.$page.css(&quot;display&quot;, &quot;block&quot;); }
+    return hidden;
+  },
+
+  _restorePageVisibility: function(hidden) {
+   if (hidden) { this.$page.css(&quot;display&quot;, &quot;&quot;); }
+  },
+
+  &#x2F;&#x2F;-----------------------------------------
+  &#x2F;&#x2F; Automatically called on page creation
+  &#x2F;&#x2F;-----------------------------------------
+  _create: function() {
+    var then = new Date(),
+        hidden;
+
+    this.$wrapper = this.element;  &#x2F;&#x2F; JQuery object containing the element we are creating this widget for
+    this.$page = this.$wrapper.parents(&quot;:jqmData(role=&#x27;page&#x27;)&quot;);  &#x2F;&#x2F; The page containing the wrapper
+
+    if (this.options.debug &amp;&amp; this.options.traceCreateDestroy) {
+      this._log(&quot;_create() start&quot;, then);
+      }
+
+    this.createdAt = then;
+    this._instanceCount(this._instanceCount() + 1);  &#x2F;&#x2F; The count of extant instances of this widget on the page
+    this.instanceID = this._nextInstanceID();       &#x2F;&#x2F; The serial ID of this instance of this widget on the page
+    this._nextInstanceID(this._instanceID + 1);
+    if (this.instanceID === 1) {
+      this._pageID(nextPageID);
+      nextPageID += 1;
+    }
+    this.pageID = this._pageID();
+
+    hidden = this._setPageVisible();   &#x2F;&#x2F; Fake page visibility, so dimension functions work
+    this._adaptPage();
+    this._createScroller();
+    this.$scroller = this.$wrapper.children(&quot;:first&quot;);   &#x2F;&#x2F; Get the first child of the wrapper, which is the
+                                                         &#x2F;&#x2F;   element that we will scroll
+    if (this.$scroller.length === 0) { return; }
+
+    &#x2F;&#x2F; Find pull elements, if present
+    this.$pullDown = $(&quot;.&quot; + this.options.pullDownClass, this.$scroller);
+    this._modifyPullDown();
+
+    this.$pullUp = $(&quot;.&quot; + this.options.pullUpClass, this.$scroller);
+    this._modifyPullUp();
+
+    &#x2F;&#x2F; Merge options from data-iscroll, if present
+    $.extend(true, this.options, this.$wrapper.jqmData(&quot;iscroll&quot;));
+
+    this._modifyWrapper();                 &#x2F;&#x2F; Various changes to the wrapper
+
+    &#x2F;&#x2F; Need this for deferred refresh processing
+    this._bindPage(&quot;pagebeforeshow&quot;, this._pageBeforeShowFunc);
+
+    this._setTopOffsetForPullDown();  &#x2F;&#x2F; If there&#x27;s a pull-down, set the top offset
+    this._setBottomOffsetForPullUp(); &#x2F;&#x2F; If there&#x27;s a pull-up, set the bottom offset
+    this._resizeWrapper();             &#x2F;&#x2F; Resize the wrapper to fill available space
+    this._addScrollerPadding();            &#x2F;&#x2F; Put back padding removed from wrapper
+    this._create_iscroll_object();
+    this._merge_from_iscroll_options();     &#x2F;&#x2F; Merge iscroll options into widget options
+    this._restorePageVisibility(hidden);
+
+        &#x2F;&#x2F; Setup bindings for window resize and orientationchange
+
+    if (this.options.resizeWrapper) {
+      this._isvBind(this.$window, this.options.resizeEvents, this._windowResizeFunc, &quot;$window&quot;);
+      if (this.options.scrollTopOnOrientationChange) {
+         this._isvBind(this.$window, &quot;orientationchange&quot;, this._orientationChangeFunc, &quot;$window&quot;);
+         }
+      }
+
+    &#x2F;&#x2F; Refresh on trigger of updatelayout of content
+    this.$scrollerContent = this.$scroller.find(&quot;.&quot; + this.options.scrollerContentClass);
+    this._isvBind(this.$scrollerContent, &quot;updatelayout&quot;, this._updateLayoutFunc, &quot;$scrollerContent&quot;);
+
+    if (this.options.debug &amp;&amp; this.options.traceCreateDestroy) {
+      this._logInterval(&quot;_create() end&quot;, then);
+      }
+    },
+
+  &#x2F;&#x2F;----------------------------------------------------------
+  &#x2F;&#x2F; Destroy an instantiated plugin and clean up modifications
+  &#x2F;&#x2F; the widget has made to the DOM
+  &#x2F;&#x2F;----------------------------------------------------------
+  destroy: function () {
+    var then = null;
+    if (this.options.debug &amp;&amp; this.options.traceCreateDestroy) {
+      then = this._log(&quot;destroy() start&quot;);
+      }
+
+    &#x2F;&#x2F; Unbind events
+    this._isvUnbind(this.$scrollerContent, &quot;updatelayout&quot;, &quot;$scrollerContent&quot;);
+    this._isvUnbind(this.$window, this.options.resizeEvents, &quot;$window&quot;);
+    this._isvUnbind(this.$window, &quot;orientationchange&quot;, &quot;$window&quot;);
+    if (this._instanceCount() === 1) {
+      this._unbindPage(&quot;pagebeforeshow&quot;);
+      if (HasTouch) {
+      this._unbindPage(&quot;touchmove&quot;);
+      }
+    }
+
+    &#x2F;&#x2F; fastDestroy option skips tearing down the modifications to the page, because we assume
+    &#x2F;&#x2F; that the page itself is being removed, and nobody is going to be silly enough to
+    &#x2F;&#x2F; un-ehance a scroller and keep the page.
+    if (!this.options.fastDestroy) {
+      this.iscroll.destroy();
+      this.iscroll = null;
+      this._undoExpandScrollerToFillWrapper();
+      this._undoModifyPullDown();
+      this._undoModifyPullUp();
+      this._undoAddScrollerPadding();
+      this._undoModifyWrapper();
+      this.$wrapper.removeClass(this.options.wrapperClass);
+      this.$scroller.removeClass(this.options.scrollerClass);
+      this._undoCreateScroller();
+      }
+
+    this._instanceCount(this._instanceCount() - 1);   &#x2F;&#x2F; The count of extant instances of this widget on the page
+    if (this._instanceCount() === 0) {
+      this._undoAdaptPage();
+    }
+
+    &#x2F;&#x2F; For UI 1.8, destroy must be invoked from the
+    &#x2F;&#x2F; base widget
+    $.Widget.prototype.destroy.call(this);
+    if (this.options.debug &amp;&amp; this.options.traceCreateDestroy) {
+      this._logInterval(&quot;destroy() end&quot;, then);
+      }
+     &#x2F;&#x2F; For UI 1.9, define _destroy instead and don&#x27;t
+     &#x2F;&#x2F; worry about calling the base widget
+    },
+
+  &#x2F;&#x2F; Enable the widget
+  enable: function() {
+    this.iscroll.enable();
+    $.Widget.prototype.enable.call(this);
+    },
+
+  &#x2F;&#x2F; Disable the widget
+  disable: function() {
+    this.iscroll.disable();
+    $.Widget.prototype.disable.call(this);
+    },
+
+    &#x2F;&#x2F;----------------------------------------------------------
+    &#x2F;&#x2F;Respond to any changes the user makes to the option method
+    &#x2F;&#x2F;----------------------------------------------------------
+    _setOption: function( key, value ) {
+      var hidden;
+
+      &#x2F;&#x2F; iScroll4 doesn&#x27;t officially support changing options after an iscroll object has been
+      &#x2F;&#x2F; instantiated. However, some changes will work if you do a refresh() after changing the
+      &#x2F;&#x2F; option. This is undocumented other than from user comments on the iscroll4 Google
+      &#x2F;&#x2F; Groups support group. If an option change doesn&#x27;t work with refresh(), then it
+      &#x2F;&#x2F; is necessary to destroy and re-create the iscroll object. This is a functionality
+      &#x2F;&#x2F; that the author of iscroll4 intends to support in the future.
+      &#x2F;&#x2F;
+      &#x2F;&#x2F; TODO: Research which options can be successfully changed without destroying and
+      &#x2F;&#x2F;       re-creating the iscroll object. For now, I&#x27;m taking a safe approach and
+      &#x2F;&#x2F;       always destroying and re-creating the iscroll object.
+      &#x2F;&#x2F;switch (key) {
+        &#x2F;&#x2F;case &quot;hScroll&quot;:
+        &#x2F;&#x2F;case &quot;vScroll&quot;:
+        &#x2F;&#x2F;case &quot;hScrollbar&quot;:
+        &#x2F;&#x2F;case &quot;vScrollbar&quot;:
+          &#x2F;&#x2F;this.options[ key ] = value;          &#x2F;&#x2F; Change our options object
+          &#x2F;&#x2F;this.iscroll.options[ key ] = value;  &#x2F;&#x2F; ... and iscroll&#x27;s options object
+          &#x2F;&#x2F;this.iscroll.refresh();               &#x2F;&#x2F; Don&#x27;t think we need the timing hack here
+          &#x2F;&#x2F;break;
+
+        &#x2F;&#x2F;default:
+          this.options[ key ] = value;
+          this.iscroll.destroy();
+          hidden = this._setPageVisible();
+          this._create_iscroll_object();
+          this._restorePageVisibility(hidden);
+          &#x2F;&#x2F;break;
+        &#x2F;&#x2F;}
+      &#x2F;&#x2F; For UI 1.8, _setOption must be manually invoked from
+      &#x2F;&#x2F; the base widget
+      $.Widget.prototype._setOption.apply(this, arguments);
+      &#x2F;&#x2F; For UI 1.9 the _super method can be used instead
+      &#x2F;&#x2F; this._super( &quot;_setOption&quot;, key, value );
+      },
+
+    &#x2F;&#x2F;----------------------------------------------------
+    &#x2F;&#x2F; Convenience wrappers around iscroll4 public methods
+    &#x2F;&#x2F; So, you can use:
+    &#x2F;&#x2F;
+    &#x2F;&#x2F; $(&quot;.some-class&quot;).iscrollview(&quot;scrollTo&quot;, x, y, time, relative);
+    &#x2F;&#x2F;
+    &#x2F;&#x2F; instead of:
+    &#x2F;&#x2F;
+    &#x2F;&#x2F; $(&quot;.some-class&quot;).jqmData(&quot;iscrollview&quot;).iscroll.scrollTo(x, y, time, relative);
+    &#x2F;&#x2F;
+    &#x2F;&#x2F;----------------------------------------------------
+    scrollTo:        function(x,y,time,relative) { this.iscroll.scrollTo(x,y,time,relative); },
+    scrollToElement: function(el,time)           { this.iscroll.scrollToElement(el,time); },
+    scrollToPage:    function(pageX,pageY,time)  { this.iscroll.scrollToPage(pageX,pageY,time); },
+    stop:            function()                  { this.iscroll.stop(); },
+    zoom:            function(x,y,scale,time)    { this.iscroll.zoom(x,y,scale,time); },
+    isReady:         function()                  { return this.iscroll.isReady(); },
+    &#x2F;&#x2F; See disable() enable() elsewhere above - they are standard widget methods
+
+    &#x2F;&#x2F;----------------------------------------------------------------------------------
+    &#x2F;&#x2F; Accessors for iscroll4 internal variables. These are sometimes useful externally.
+    &#x2F;&#x2F; For example, let&#x27;s say you are adding elements to the end of a scrolled list.
+    &#x2F;&#x2F; You&#x27;d like to scroll up (using scrollToElement) if the new element would be
+    &#x2F;&#x2F; below the visible area. But if the list is intially empty, you&#x27;d want to avoid
+    &#x2F;&#x2F; this until the scrolling area is initially full. So you need to compare the
+    &#x2F;&#x2F; scroller height (scrollerH) to the wrapper height (wrapperH).
+    &#x2F;&#x2F;
+    &#x2F;&#x2F; These are also useful for creating &quot;pull to refresh&quot; functionality.
+    &#x2F;&#x2F;
+    &#x2F;&#x2F;-----------------------------------------------------------------------------------
+    x:          function() { return this.iscroll.x; },
+    y:          function() { return this.iscroll.y; },
+    wrapperW:   function() { return this.iscroll.wrapperW; },
+    wrapperH:   function() { return this.iscroll.wrapperH; },
+    scrollerW:  function() { return this.iscroll.scrollerW; },
+    scrollerH:  function() { return this.iscroll.scrollerH; },
+
+    &#x2F;&#x2F; These have setters. Useful for &quot;pull to refresh&quot;.
+    minScrollX: function(val) { if (val !== undefined) { this.iscroll.minScrollX = val; } return this.iscroll.minScrollX; },
+    minScrollY: function(val) { if (val !== undefined) { this.iscroll.minScrollY = val; } return this.iscroll.minScrollY; },
+    maxScrollX: function(val) { if (val !== undefined) { this.iscroll.maxScrollX = val; } return this.iscroll.maxScrollX; },
+    maxScrollY: function(val) { if (val !== undefined) { this.iscroll.maxScrollY = val; } return this.iscroll.maxScrollY; },
+
+    &#x2F;&#x2F;-----------------------------------------------------------------------------------
+    &#x2F;&#x2F; Pull-down&#x2F;Pull-up support
+    &#x2F;&#x2F;-----------------------------------------------------------------------------------
+    &#x2F;&#x2F; Is pull-down in &quot;pulled&quot; state?
+    _pullDownIsPulled: function () {
+      return this.$pullDown.length &amp;&amp; this.$pullDown.hasClass(this.options.pullPulledClass);
+      },
+
+    &#x2F;&#x2F; Is pull-up in &quot;pulled&quot; state?
+    _pullUpIsPulled: function () {
+      return this.$pullUp.length &amp;&amp; this.$pullUp.hasClass(this.options.pullPulledClass);
+      },
+
+    &#x2F;&#x2F; Replace the text in a pull block
+    _replacePullText: function ($pull, text) {
+      var $label;
+      if (text) {
+        $label = $(&quot;.&quot; + this.options.pullLabelClass, $pull);
+        if ($label) { $label.text(text); }
+        }
+      },
+
+    &#x2F;&#x2F; Reset a pull block to the initial state
+    _pullSetStateReset: function ($pull, text) {
+      if ($pull.is(&quot;.&quot; + this.options.pullLoadingClass + &quot;, .&quot; + this.options.pullPulledClass)) {
+        $pull.removeClass(this.options.pullPulledClass + &quot; &quot; + this.options.pullLoadingClass);
+        this._replacePullText($pull, text);
+        }
+      },
+
+    _pullDownSetStateReset: function(e) {
+        this._pullSetStateReset(this.$pullDown, this.options.pullDownResetText);
+      this._triggerWidget(&quot;onpulldownreset&quot;, e);
+      },
+
+    _pullUpSetStateReset: function(e) {
+        this._pullSetStateReset(this.$pullUp, this.options.pullUpResetText);
+      this._triggerWidget(&quot;onpullupreset&quot;, e);
+      },
+
+    &#x2F;&#x2F; Set a pull block to pulled state
+    _pullSetStatePulled: function($pull, text) {
+      $pull.removeClass(this.options.pullLoadingClass).addClass(this.options.pullPulledClass);
+      this._replacePullText($pull, text);
+      },
+
+    _pullDownSetStatePulled: function(e) {
+        this._pullSetStatePulled(this.$pullDown, this.options.pullDownPulledText);
+      this._triggerWidget(&quot;onpulldownpulled&quot;, e);
+      },
+
+    _pullUpSetStatePulled: function (e) {
+        this._pullSetStatePulled(this.$pullUp, this.options.pullUpPulledText);
+      this._triggerWidget(&quot;onpulluppulled&quot;, e);
+      },
+
+    &#x2F;&#x2F; Set a pull block to the loading state
+    _pullSetStateLoading: function($pull, text) {
+      $pull.removeClass(this.options.pullPulledClass).addClass(this.options.pullLoadingClass);
+      this._replacePullText($pull, text);
+      },
+
+    _pullDownSetStateLoading: function (e) {
+        this._pullSetStateLoading(this.$pullDown, this.options.pullDownLoadingText);
+      this._triggerWidget(&quot;onpulldownloading&quot;, e);
+      },
+
+    _pullUpSetStateLoading: function(e) {
+        this._pullSetStateLoading(this.$pullUp, this.options.pullUpLoadingText);
+      this._triggerWidget(&quot;onpulluploading&quot;, e);
+     },
+
+    _pullOnRefresh: function (e) {
+      &#x2F;&#x2F; It&#x27;s debatable if this is the right place to do this. On one hand, it might be best
+      &#x2F;&#x2F; to do this in the pullup&#x2F;down action function. We expect that we will always do a refresh
+      &#x2F;&#x2F; after the action, though (unless the action doesn&#x27;t actually update anything, in which
+      &#x2F;&#x2F; case it can still call refresh().) On the other hand, it might be desirable to
+      &#x2F;&#x2F; &quot;reset&quot; the pull if a refresh comes along for some other reason. If the content were
+      &#x2F;&#x2F; updated because of something other than the user&#x27;s pull action, then we consider the
+      &#x2F;&#x2F; pull moot.
+
+      &#x2F;&#x2F; Reset pull blocks to their initial state
+      if (this.$pullDown.length) { this._pullDownSetStateReset(e); }
+      if (this.$pullUp.length)   { this._pullUpSetStateReset(e); }
+      },
+
+    _pullOnScrollMove: function (e) {
+      var pullDownIsPulled, pullUpIsPulled, pullDownHeight, pullDownPast, pullUpHeight, pullUpPast,
+          y = this.y();
+
+      if (this.$pullDown.length) {
+        pullDownIsPulled = this._pullDownIsPulled();
+        pullDownHeight = this.options.topOffset;
+        &#x2F;&#x2F; User needs to pull down past the top edge of the pulldown element. To prevent false
+        &#x2F;&#x2F; triggers from aggressive scrolling, they should have to pull down some additional
+        &#x2F;&#x2F; amount. Half the height of the pulldown seems reasonable, but adjust per preference.
+        pullDownPast = pullDownHeight &#x2F; 2;
+
+        &#x2F;&#x2F; Set &quot;pulled&quot; state if not pulled and user has pulled past the pulldown element
+        &#x2F;&#x2F; by pullDownPast pixels
+        if (!pullDownIsPulled &amp;&amp; y &gt; pullDownPast ) {
+          this._pullDownSetStatePulled(e);
+          this.minScrollY(0);   &#x2F;&#x2F; Circumvent top offset so pull-down element doesn&#x27;t rubber-band
+          }
+
+        &#x2F;&#x2F; Allow user to &quot;oopsie&quot;, and scroll back to cancel and avoid pull-down action
+        &#x2F;&#x2F; Cancel if pulled and user has scrolled back to top of pulldown element
+        else if (pullDownIsPulled &amp;&amp; y &lt;= 0) {
+          this._pullDownSetStateReset(e);
+          this.minScrollY(-pullDownHeight);  &#x2F;&#x2F; Re-instate top offset
+          }
+        }
+
+     if (this.$pullUp.length) {
+          pullUpIsPulled = this._pullUpIsPulled();
+          pullUpHeight = this.options.bottomOffset;
+          pullUpPast = pullUpHeight &#x2F; 2;
+       if (!pullUpIsPulled &amp;&amp; y &lt; this.maxScrollY() - pullUpHeight - pullUpPast ) {
+         this._pullUpSetStatePulled(e);
+         this.maxScrollY(this.wrapperH() - this.scrollerH() + this.minScrollY());
+         }
+
+        else if (pullUpIsPulled &amp;&amp; y &gt;= this.maxScrollY() ) {
+          this._pullUpSetStateReset(e);
+          this.maxScrollY(this.wrapperH() - this.scrollerH() + this.minScrollY() + pullUpHeight);
+          }
+       }
+
+      },
+
+    _pullOnScrollEnd: function (e) {
+      if (this._pullDownIsPulled(e)) {
+          this._pullDownSetStateLoading(e);
+        this._triggerWidget(&quot;onpulldown&quot;, e);
+        }
+      else if (this._pullUpIsPulled(e)) {
+          this._pullUpSetStateLoading(e);
+        this._triggerWidget(&quot;onpullup&quot;, e);
+        }
+      }
+
+    });
+
+}( jQuery, window, document ));
+
+&#x2F;&#x2F; Self-init
+jQuery(document).bind(&quot;pagecreate&quot;, function (e) {
+  &quot;use strict&quot;;
+
+  &#x2F;&#x2F; In here, e.target refers to the page that was created (it&#x27;s the target of the pagecreate event)
+  &#x2F;&#x2F; So, we can simply find elements on this page that match a selector of our choosing, and call
+  &#x2F;&#x2F; our plugin on them.
+
+  &#x2F;&#x2F; The find() below returns an array of elements within a newly-created page that have
+  &#x2F;&#x2F; the data-iscroll attribute. The Widget Factory will enumerate these and call the widget
+  &#x2F;&#x2F; _create() function for each member of the array.
+  &#x2F;&#x2F; If the array is of zero length, then no _create() fucntion is called.
+  var elements = jQuery(e.target).find(&quot;:jqmData(iscroll)&quot;);
+    elements.iscrollview();
+  });
+
+
+
+    </pre>
+</div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="..&#x2F;assets/vendor/prettify/prettify-min.js"></script>
+<script>prettyPrint();</script>
+<script src="..&#x2F;assets/js/yui-prettify.js"></script>
+<script src="..&#x2F;assets/../api.js"></script>
+<script src="..&#x2F;assets/js/api-filter.js"></script>
+<script src="..&#x2F;assets/js/api-list.js"></script>
+<script src="..&#x2F;assets/js/api-search.js"></script>
+<script src="..&#x2F;assets/js/apidocs.js"></script>
+</body>
+</html>

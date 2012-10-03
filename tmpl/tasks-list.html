@@ -1,0 +1,36 @@
+<li data-role="list-divider" data-theme="a">
+    Tasks
+</li>
+<!-- ko foreach: { data: tasks } -->
+
+  <!-- ko if: $data === $parent.selectedTask() -->
+  <li data-bind="click: $parent.setSelectedTask" data-theme="b">
+    <a href="javascript:void(0)">
+      <div class="row-fluid">
+        <div class="span8">
+          <div class="task-title" data-bind="html: taskAuditInformation.audittitle(), css: { 'muted': (taskAuditInformation.audittitle() === 'n/a') }"></div>
+        </div>
+        <div class="span4">
+          <span data-bind="'text': taskInformation.taskstatus(), 'attr': { 'class': taskInformation.statusClass() + ' pull-right' }"></span>
+        </div>
+      </div>
+    </a>
+  </li>
+  <!-- /ko -->
+
+  <!-- ko ifnot: $data === $parent.selectedTask() -->
+  <li data-bind="click: $parent.setSelectedTask">
+    <a href="javascript:void(0)">
+      <div class="row-fluid">
+        <div class="span8">
+          <div class="task-title" data-bind="html: taskAuditInformation.audittitle(), css: { 'muted': (taskAuditInformation.audittitle() === 'n/a') }"></div>
+        </div>
+        <div class="span4">
+          <span data-bind="text: taskInformation.taskstatus(), attr: { class: taskInformation.statusClass() + ' pull-right' }"></span>
+        </div>
+      </div>
+    </a>
+  </li>
+  <!-- /ko -->
+
+<!-- /ko -->

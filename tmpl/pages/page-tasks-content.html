@@ -1,0 +1,73 @@
+<!-- Wrapper container for sidebar and main content area. -->
+<div class="row-fluid">
+  <!-- Side bar -->
+  <div class="span4">
+    <div class="iscroll-panel task-list-panel" data-iscroll="" data-bind="iscroll: true">
+
+      <!-- Pull to refresh containers -->
+      <div class="iscroll-pulldown">
+        <span class="iscroll-pull-icon">
+        </span><span class="iscroll-pull-label"></span>
+      </div>
+      <!-- /Pull to refresh containers -->
+
+      <ul id="task-list" data-role="listview" class="nav nav-list" data-inset="true" data-bind="template: { name: 'template-tasks-list', afterRender: refreshListItemsUI }">
+      </ul>
+
+      <!-- FIXME Workaround for iscroll bottom padding issues. -->
+      <div class="vertical-spacer"></div>
+    </div>
+  </div>
+  <!-- /Side bar -->
+  <div class="span8">
+    <!-- ko ifnot: selectedTask -->
+    <div class="no-task-selected"><i class="icon-tasks"></i> Select a task to view its details.</div>
+    <!-- /ko -->
+
+    <!-- ko if: selectedTask -->
+    <div class="iscroll-panel task-details-panel" data-iscroll="" data-bind="iscroll: true">
+      <form id="task-details" action="" class="form-text form-horizontal" data-bind="template: { name: 'template-task-detail', data: selectedTask, afterRender: refreshCollapsibleBlocks }">
+      </form>
+
+      <!-- FIXME Workaround for iscroll bottom padding issues. -->
+      <div class="vertical-spacer"></div>
+    </div>
+    <!-- /ko -->
+  </div>
+</div><!-- Wrapper container for sidebar and main content area. -->
+<div class="row-fluid">
+  <!-- Side bar -->
+  <div class="span4">
+    <div class="iscroll-panel task-list-panel" data-iscroll="" data-bind="iscroll: true">
+
+      <!-- Pull to refresh containers -->
+      <div class="iscroll-pulldown">
+        <span class="iscroll-pull-icon">
+        </span><span class="iscroll-pull-label"></span>
+      </div>
+      <!-- /Pull to refresh containers -->
+
+      <ul id="task-list" data-role="listview" class="nav nav-list" data-inset="true" data-bind="template: { name: 'template-tasks-list', afterRender: refreshListItemsUI }">
+      </ul>
+
+      <!-- FIXME Workaround for iscroll bottom padding issues. -->
+      <div class="vertical-spacer"></div>
+    </div>
+  </div>
+  <!-- /Side bar -->
+  <div class="span8">
+    <!-- ko ifnot: selectedTask -->
+    <div class="no-task-selected"><i class="icon-tasks"></i> Select a task to view its details.</div>
+    <!-- /ko -->
+
+    <!-- ko if: selectedTask -->
+    <div class="iscroll-panel task-details-panel" data-iscroll="" data-bind="iscroll: true">
+      <form id="task-details" action="" class="form-text form-horizontal" data-bind="template: { name: 'template-task-detail', data: selectedTask, afterRender: refreshCollapsibleBlocks }">
+      </form>
+
+      <!-- FIXME Workaround for iscroll bottom padding issues. -->
+      <div class="vertical-spacer"></div>
+    </div>
+    <!-- /ko -->
+  </div>
+</div>

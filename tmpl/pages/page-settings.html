@@ -1,0 +1,71 @@
+<header data-role="header" data-position="fixed">
+  <a href="javascript:void(0)" data-rel="back" data-role="button" data-icon="back">Cancel</a>
+  <h1>Settings</h1>
+  <a href="javascript:void(0)" data-rel="back" data-role="button" data-icon="check" data-bind="click: saveSettings">Save</a>
+</header>
+
+<div data-role="content">
+  <div data-role="collapsible" data-inset="true" data-content-theme="a" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" data-collapsed="false">
+    <h3>General Settings</h3>
+    <form class="form-horizontal form-mini">
+      <div class="row-fluid">
+        <div class="control-group">
+          <label class="control-label control-jqm">Username</label>
+          <div class="controls">
+            <input class="span12" data-bind="value: settings().settings.general.username" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row-fluid">
+        <div class="control-group">
+          <label class="control-label control-jqm">Password</label>
+          <div class="controls">
+            <input type="password" class="span12" data-bind="value: settings().settings.general.password" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row-fluid">
+        <div class="control-group">
+          <label class="control-label control-jqm">Refresh interval (minutes)</label>
+          <div class="controls">
+            <input type="range" value="60" min="0" max="100" />
+          </div>
+        </div>
+      </div>
+
+      <div class="row-fluid">
+        <div class="control-group">
+          <label class="control-label control-jqm">Enable notifications</label>
+          <div class="controls">
+            <select data-role="slider" data-mini="true">
+              <option value="off">Off</option>
+              <option value="on">On</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div data-role="collapsible" data-inset="true" data-content-theme="a" data-collapsed-icon="arrow-r" data-expanded-icon="arrow-d" data-collapsed="false">
+    <h3>Network Settings</h3>
+    <form class="form-horizontal form-mini">
+      <div class="row-fluid">
+        <div class="control-group">
+          <label class="control-label control-jqm">Server Address</label>
+          <div class="controls">
+            <input type="url" class="span12" data-bind="value: settings().api.metricstream.baseUrl"/>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<footer data-role="footer" class="ui-bar" data-position="fixed">
+  <div data-role="controlgroup" data-type="horizontal">
+    <a href="javascript:void(0)" data-role="button" data-icon="refresh" data-bind="click: resetToDefaults">Reset</a>
+  </div>
+</footer>
